@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Oneilverse — Kasir dan laporan untung rugi untuk UMKM</title>
+<meta name="description" content="Aplikasi kasir, stok, dan laporan laba rugi untuk warung, kafe, toko, dan usaha kecil. Tahu untung toko Anda setiap hari, dari HP maupun laptop.">
+<meta name="theme-color" content="#06080f">
+<meta property="og:title" content="Oneilverse — Tahu untung tokomu, setiap hari">
+<meta property="og:description" content="Kasir, stok, dan laporan laba rugi dalam satu aplikasi untuk UMKM Indonesia.">
+<meta property="og:image" content="https://oneilverse.com/img/dash_d.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b1226'/%3E%3Ccircle cx='32' cy='32' r='20' fill='none' stroke='%23e8b84a' stroke-width='4'/%3E%3Ctext x='32' y='42' font-size='28' font-weight='700' text-anchor='middle' fill='white' font-family='Arial'%3EN%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#06080f;--bg2:#0b0f1a;--line:#1a2133;--tx:#f2f4f8;--mut:#8b94a8;--blue:#5b8cff;--green:#34d399;--amber:#f5b942}
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--tx);font-family:"Plus Jakarta Sans",Inter,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3{letter-spacing:-.035em;line-height:1.06;font-weight:800}
+h1{font-size:clamp(2.6rem,7.2vw,5.4rem)}
+h2{font-size:clamp(2rem,4.6vw,3.4rem)}
+h3{font-size:1.25rem;letter-spacing:-.02em;line-height:1.25}
+p.lead{color:var(--mut);font-size:clamp(1.05rem,1.8vw,1.3rem);max-width:34em}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font-weight:700;font-size:1rem;transition:transform .2s,background .2s,border-color .2s}
+.btn-wa{background:#25d366;color:#04210f}
+.btn-wa:hover{transform:translateY(-2px);background:#3be07b}
+.btn-ghost{border:1px solid #2a3350;color:var(--tx)}
+.btn-ghost:hover{border-color:#4a5a8a}
+.btn svg{width:20px;height:20px;flex:none}
+
+/* nav */
+nav{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(6,8,15,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.05)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.02em;font-size:1.05rem}
+.brand i{width:26px;height:26px;border-radius:8px;background:#0b1226;border:1.5px solid #e8b84a;display:grid;place-items:center;font-style:normal;font-size:.8rem;color:#fff}
+nav .links{display:flex;gap:26px;font-size:.9rem;color:var(--mut)}
+nav .links a:hover{color:var(--tx)}
+nav .btn{padding:9px 18px;font-size:.88rem;background:var(--tx);color:#06080f}
+@media(max-width:760px){nav .links{display:none}}
+
+/* hero */
+.hero{padding:132px 0 0;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;left:50%;top:-10%;width:900px;height:700px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(91,140,255,.22),transparent);pointer-events:none}
+.hero h1{max-width:12em;margin:0 auto 22px;position:relative}
+.hero p.lead{margin:0 auto 34px;position:relative}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative}
+.badge{display:inline-block;margin-bottom:22px;padding:7px 16px;border:1px solid #232c45;border-radius:999px;color:var(--mut);font-size:.85rem;position:relative}
+
+/* laptop */
+.stage{perspective:1800px;margin:64px auto 0;max-width:980px;padding:0 12px;position:relative}
+.laptop{position:relative}
+.lid{background:#10141f;border:1px solid #2b3350;border-radius:18px 18px 6px 6px;padding:12px 12px 14px;box-shadow:0 40px 120px -20px rgba(91,140,255,.35),0 0 0 1px #05070c;transform-origin:50% 100%;animation:open 1.5s cubic-bezier(.2,.8,.2,1) both}
+.lid::before{content:"";position:absolute;left:50%;top:5px;width:5px;height:5px;border-radius:50%;background:#1c2438;transform:translateX(-50%)}
+.lid img{border-radius:6px;width:100%}
+.base{height:16px;margin:0 -3.5%;background:linear-gradient(#262d42,#141927);border-radius:0 0 22px 22px;border:1px solid #2b3350;border-top:0;position:relative}
+.base::after{content:"";position:absolute;left:50%;top:0;width:16%;height:6px;border-radius:0 0 10px 10px;background:#0b0e17;transform:translateX(-50%)}
+@keyframes open{from{transform:rotateX(78deg);opacity:.2}to{transform:rotateX(0);opacity:1}}
+.fade{position:absolute;inset:auto 0 -2px 0;height:120px;background:linear-gradient(transparent,var(--bg));pointer-events:none}
+
+/* sections */
+section{padding:120px 0}
+.split{display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:center}
+.split.rev{grid-template-columns:1.15fr 1fr}
+.split.rev .txt{order:2}
+.txt h2{margin-bottom:20px}
+.txt p{color:var(--mut);font-size:1.1rem;max-width:30em}
+.txt ul{list-style:none;margin-top:26px;display:grid;gap:12px}
+.txt li{padding-left:28px;position:relative;color:#c9d0df}
+.txt li::before{content:"";position:absolute;left:0;top:.55em;width:14px;height:8px;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg) translateY(-3px)}
+.shot{border-radius:18px;border:1px solid #232c45;overflow:hidden;box-shadow:0 30px 90px -30px rgba(91,140,255,.35)}
+.shot img{width:100%}
+.phones{display:flex;justify-content:center;gap:22px;align-items:flex-start}
+.phone{width:min(260px,44%);border-radius:38px;padding:9px;background:#10141f;border:1px solid #2b3350;box-shadow:0 30px 80px -25px rgba(91,140,255,.4);position:relative}
+.phone:nth-child(2){margin-top:54px}
+.phone img{border-radius:30px;width:100%}
+.phone::before{content:"";position:absolute;left:50%;top:15px;width:34%;height:16px;border-radius:12px;background:#05070c;transform:translateX(-50%);z-index:2}
+
+.statement{padding:140px 0;text-align:center;background:var(--bg2);border-block:1px solid var(--line)}
+.statement p{font-size:clamp(1.7rem,4.2vw,3.1rem);font-weight:800;letter-spacing:-.035em;line-height:1.15;max-width:19em;margin:0 auto;color:#d8deec}
+.statement b{color:var(--tx)}
+
+/* roles */
+.roles{margin-top:56px;border-top:1px solid var(--line)}
+.role{display:grid;grid-template-columns:200px 1fr;gap:20px 40px;padding:30px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.role h3{font-size:clamp(1.5rem,3vw,2.2rem);letter-spacing:-.03em}
+.role p{color:var(--mut);max-width:38em}
+.role:nth-child(1) h3{color:var(--green)}.role:nth-child(2) h3{color:var(--blue)}.role:nth-child(3) h3{color:var(--amber)}
+.head{max-width:34em}
+.head p{margin-top:18px;color:var(--mut);font-size:1.15rem}
+
+/* who */
+.who{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px}
+.who span{padding:11px 20px;border:1px solid #232c45;border-radius:999px;color:#c9d0df;font-weight:600;background:#0a0e18}
+.who span:nth-child(3n+1){border-color:#2c3c66}
+
+/* features */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0 64px;margin-top:56px}
+.f{padding:26px 0;border-top:1px solid var(--line)}
+.f h3{margin-bottom:8px}
+.f p{color:var(--mut)}
+
+/* ai */
+.ai{background:linear-gradient(180deg,var(--bg),#0a1024 60%,var(--bg))}
+.chat{max-width:520px;margin-left:auto;display:grid;gap:12px;padding:26px;border:1px solid #232c45;border-radius:24px;background:#090d18}
+.b{padding:13px 18px;border-radius:20px;max-width:88%;font-size:.98rem;line-height:1.5}
+.b.u{background:var(--blue);color:#fff;justify-self:end;border-bottom-right-radius:6px}
+.b.a{background:#141b2e;color:#d8deec;border-bottom-left-radius:6px}
+.chat small{color:var(--mut);font-size:.8rem;text-align:center;margin-top:4px}
+.tag{display:inline-block;padding:5px 14px;border-radius:999px;background:rgba(245,185,66,.12);color:var(--amber);font-size:.85rem;font-weight:700;margin-bottom:18px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;margin-top:56px;counter-reset:s}
+.step{counter-increment:s}
+.step::before{content:counter(s);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--tx);color:#06080f;font-weight:800;margin-bottom:20px}
+.step p{color:var(--mut);margin-top:8px}
+
+/* price */
+.price{text-align:center;padding:140px 0}
+.price h2{max-width:14em;margin:0 auto 20px}
+.price p{color:var(--mut);max-width:30em;margin:0 auto 34px;font-size:1.15rem}
+footer{border-top:1px solid var(--line);padding:36px 0;color:var(--mut);font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+@media(max-width:900px){
+ section{padding:84px 0}
+ .split,.split.rev{grid-template-columns:1fr;gap:44px}
+ .split.rev .txt{order:0}
+ .grid{grid-template-columns:1fr}
+ .steps{grid-template-columns:1fr;gap:32px}
+ .role{grid-template-columns:1fr;gap:8px}
+ .chat{margin:0}
+ .hero{padding-top:108px}
+ .stage{margin-top:44px}
+}
+@media(prefers-reduced-motion:reduce){.lid{animation:none}html{scroll-behavior:auto}.btn{transition:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+ <a class="brand" href="#"><i>N</i>Oneilverse</a>
+ <div class="links"><a href="#laporan">Laporan</a><a href="#peran">Tim</a><a href="#aman">Keamanan</a><a href="#mulai">Cara mulai</a></div>
+ <a class="btn" href="https://wa.me/6285260935595?text=Halo%20Oneilverse%2C%20saya%20ingin%20tahu%20lebih%20lanjut%20tentang%20aplikasinya." target="_blank" rel="noopener">Hubungi kami</a>
+</div></nav>
+
+<header class="hero">
+ <div class="wrap">
+  <span class="badge">Tahap Beta — kini menerima mitra awal</span>
+  <h1>Tahu untung tokomu, setiap hari.</h1>
+  <p class="lead">Kasir, stok, dan laporan laba rugi dalam satu aplikasi. Dibuka dari HP atau laptop, dibuat khusus untuk usaha kecil Indonesia.</p>
+  <div class="cta">
+   <a class="btn btn-wa" href="https://wa.me/6285260935595?text=Halo%20Oneilverse%2C%20saya%20ingin%20tahu%20lebih%20lanjut%20tentang%20aplikasinya." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.300 1.200-1.800 1.200-.5.100-1 .2-3.300-.7-2.800-1.100-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.9 2.100c.1.200.1.400 0 .5l-.4.600-.3.400c-.1.100-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.200 1 2.100 1.300 2.400 1.500.3.100.5.100.6-.1l.9-1.100c.2-.3.400-.2.600-.1l2 1c.3.100.5.200.5.300.1.200.1.800-.1 1.400z"/></svg>Chat lewat WhatsApp</a>
+   <a class="btn btn-ghost" href="#laporan">Lihat isinya</a>
+  </div>
+  <div class="stage">
+   <div class="laptop">
+    <div class="lid"><img src="img/dash_d.jpg" alt="Tampilan dashboard owner: omzet, pengeluaran, laba rugi bulan ini, dan pajak" width="2000" height="1250" fetchpriority="high"></div>
+    <div class="base"></div>
+    <div class="fade"></div>
+   </div>
+  </div>
+ </div>
+</header>
+
+<div class="statement"><div class="wrap"><p>Banyak pemilik usaha sibuk sepanjang hari, tapi di akhir bulan <b>tidak tahu pasti untung atau rugi.</b> Oneilverse membuat angkanya jelas, tanpa perlu paham akuntansi.</p></div></div>
+
+<section id="laporan"><div class="wrap split">
+ <div class="txt">
+  <h2>Laporan laba rugi, tersusun sendiri.</h2>
+  <p>Catat penjualan dan pengeluaran seperti biasa. Aplikasi merangkumnya menjadi laporan yang rapi: pendapatan, modal bahan, biaya operasional, sampai laba bersih.</p>
+  <ul>
+   <li>Lihat per hari, minggu, bulan, tahun, atau rentang tanggal sendiri</li>
+   <li>Ambil uang pribadi dicatat terpisah, jadi laba usaha tidak tercampur</li>
+   <li>Unduh sebagai PDF atau CSV untuk bank, pajak, atau mitra</li>
+  </ul>
+ </div>
+ <div class="shot"><img src="img/lr_d.jpg" alt="Laporan laba rugi bulanan dengan pendapatan, HPP, beban operasional, dan laba bersih" loading="lazy" width="1600" height="1000"></div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap split rev">
+ <div class="phones">
+  <div class="phone"><img src="img/dash_p.jpg" alt="Dashboard owner di HP" loading="lazy" width="720" height="1558"></div>
+  <div class="phone"><img src="img/lr_p.jpg" alt="Laporan laba rugi di HP" loading="lazy" width="720" height="1558"></div>
+ </div>
+ <div class="txt">
+  <h2>Toko Anda ada di saku.</h2>
+  <p>Sedang di pasar, di rumah, atau liburan: buka HP dan lihat omzet hari ini, stok yang mulai habis, dan berapa yang masuk lewat tunai, QRIS, atau transfer.</p>
+  <ul>
+   <li>Tanpa instal dari toko aplikasi, cukup buka lewat browser</li>
+   <li>Tampilan menyesuaikan layar HP, tablet, atau laptop</li>
+   <li>Target omzet harian dan bulanan, dengan progres yang terlihat</li>
+  </ul>
+ </div>
+</div></section>
+
+<section id="peran" style="background:var(--bg2);border-block:1px solid var(--line)"><div class="wrap">
+ <div class="head"><h2>Setiap orang punya pintunya sendiri.</h2><p>Karyawan cukup melayani pembeli. Angka untung dan pengaturan hanya terbuka untuk yang berhak.</p></div>
+ <div class="roles">
+  <div class="role"><h3>Kasir</h3><p>Mencatat penjualan, menerima pembayaran, dan menutup kasir di akhir shift. Tidak bisa mengintip laba toko.</p></div>
+  <div class="role"><h3>Manager</h3><p>Memantau transaksi dan stok harian, memeriksa riwayat perubahan, dan menjaga toko tetap rapi tanpa menunggu pemilik.</p></div>
+  <div class="role"><h3>Owner</h3><p>Melihat semuanya: laba rugi, pajak, target, pengaturan nama peran, dan PIN tim. Cukup satu layar untuk mengambil keputusan.</p></div>
+ </div>
+</div></section>
+
+<section id="aman"><div class="wrap split">
+ <div class="txt">
+  <h2>Data toko Anda milik Anda.</h2>
+  <p>Setiap toko punya ruang data sendiri. Orang dari toko lain tidak bisa membukanya, dan pengaturan layanan hanya bisa diubah oleh kami sebagai penyedia.</p>
+  <ul>
+   <li>Masuk dengan PIN pribadi lewat sistem login Google Firebase</li>
+   <li>Akses dikunci per toko dan per peran</li>
+   <li>Perubahan penting tercatat di riwayat audit</li>
+  </ul>
+ </div>
+ <div>
+  <p class="lead" style="max-width:none">Anda bisa ganti PIN tim kapan saja, langsung dari aplikasi. Karyawan keluar? Ganti PINnya, akses lama selesai.</p>
+ </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+ <div class="head"><h2>Cocok untuk usaha apa pun.</h2><p>Daftar akun dan kategori biaya bisa disesuaikan dengan jenis usaha Anda, jadi laporannya memakai bahasa yang Anda kenal.</p></div>
+ <div class="who">
+  <span>Warung makan</span><span>Kafe &amp; kedai kopi</span><span>Toko kelontong</span><span>Toko pakaian</span><span>Laundry</span><span>Salon &amp; barbershop</span><span>Bengkel</span><span>Apotek &amp; toko kesehatan</span><span>Bakery &amp; katering</span><span>Toko online</span><span>Jasa &amp; studio kreatif</span><span>Dan usaha lain</span>
+ </div>
+ <div class="grid">
+  <div class="f"><h3>Stok yang memberi peringatan</h3><p>Barang yang hampir habis muncul di layar owner sebelum pembeli bertanya.</p></div>
+  <div class="f"><h3>Closing kasir yang jujur</h3><p>Cocokkan uang di laci dengan catatan. Selisih langsung ketahuan.</p></div>
+  <div class="f"><h3>Pajak terhitung</h3><p>PPN 12% dihitung otomatis dari penjualan, siap dilihat kapan saja.</p></div>
+  <div class="f"><h3>Nama, logo, dan warna toko Anda</h3><p>Pelanggan dan karyawan melihat merek Anda, bukan merek kami.</p></div>
+  <div class="f"><h3>Tunai, QRIS, transfer</h3><p>Semua cara bayar tercatat, jadi ringkasan harian cocok dengan kenyataan.</p></div>
+  <div class="f"><h3>Pendampingan langsung</h3><p>Kami menyiapkan tokonya dan menyerahkannya tatap muka, lengkap dengan cara pakai.</p></div>
+ </div>
+</div></section>
+
+<section class="ai"><div class="wrap split">
+ <div class="txt">
+  <span class="tag">Segera hadir</span>
+  <h2>Tanya tokomu langsung.</h2>
+  <p>Tidak perlu membuka laporan satu per satu. Tanyakan dengan bahasa sehari-hari, dan asisten menjawab dari data toko Anda sendiri.</p>
+ </div>
+ <div class="chat" aria-label="Contoh percakapan, fitur belum tersedia">
+  <div class="b u">Menu apa yang paling untung bulan ini?</div>
+  <div class="b a">Kopi Susu Gula Aren: terjual 84 gelas dengan margin sekitar 64%. Matcha Latte paling tinggi per gelas.</div>
+  <div class="b u">Kenapa laba turun minggu ini?</div>
+  <div class="b a">Belanja bahan naik di hari Selasa dan Kamis, sementara omzet relatif sama.</div>
+  <small>Contoh tampilan. Fitur ini sedang disiapkan.</small>
+ </div>
+</div></section>
+
+<section id="mulai"><div class="wrap">
+ <div class="head"><h2>Mulai dalam tiga langkah.</h2></div>
+ <div class="steps">
+  <div class="step"><h3>Ceritakan usaha Anda</h3><p>Hubungi kami lewat WhatsApp. Kami tanya jenis usaha dan berapa orang yang terlibat.</p></div>
+  <div class="step"><h3>Kami siapkan tokonya</h3><p>Nama, logo, warna, kategori biaya, dan akun untuk kasir, manager, dan owner.</p></div>
+  <div class="step"><h3>Serah terima langsung</h3><p>Bertemu langsung, kami ajarkan cara pakainya sampai tim Anda lancar.</p></div>
+ </div>
+</div></section>
+
+<section class="price" style="background:var(--bg2);border-top:1px solid var(--line)"><div class="wrap">
+ <h2>Harga menyesuaikan kebutuhan tokomu.</h2>
+ <p>Ngobrol dulu, tanpa komitmen. Mitra awal di tahap beta mendapat pendampingan penuh.</p>
+ <a class="btn btn-wa" href="https://wa.me/6285260935595?text=Halo%20Oneilverse%2C%20saya%20ingin%20tahu%20harga%20dan%20cara%20memulai." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.300 1.200-1.800 1.200-.5.100-1 .2-3.300-.7-2.800-1.100-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.9 2.100c.1.200.1.400 0 .5l-.4.600-.3.400c-.1.100-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.200 1 2.100 1.300 2.400 1.500.3.100.5.100.6-.1l.9-1.100c.2-.3.400-.2.600-.1l2 1c.3.100.5.200.5.300.1.200.1.800-.1 1.400z"/></svg>Tanya lewat WhatsApp</a>
+</div></section>
+
+<footer><div class="wrap"><span>© 2026 Oneilverse</span><span>WhatsApp 0852-6093-5595</span></div></footer>
+</body>
+</html>
