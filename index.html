@@ -49,7 +49,11 @@ nav .links{display:flex;gap:8px;font-size:.88rem;color:var(--mut);background:#0c
 nav .links a{padding:7px 14px;border-radius:999px;font-weight:600;transition:background .2s,color .2s}
 nav .links a:hover,nav .links a.on{color:var(--tx);background:#1b2340}
 nav .btn{padding:9px 18px;font-size:.86rem;background:var(--tx);color:#070914}
-@media(max-width:780px){nav .links{display:none}}
+@media(max-width:780px){
+ nav .wrap{flex-wrap:wrap;height:auto;padding:10px 14px;gap:8px}
+ nav .links{order:3;width:100%;justify-content:center;overflow-x:auto}
+ nav .links a{padding:6px 11px;font-size:.82rem;white-space:nowrap}
+}
 
 /* hero */
 .hero{padding:126px 0 0;text-align:center;position:relative;overflow:hidden}
@@ -178,7 +182,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
   </div>
   <div class="stage">
    <div class="laptop">
-    <div class="lid"><img src="img/pro_light.png" onerror="this.src='img/dash_d.jpg'" alt="Tampilan Dashboard Toko Onies: omzet, pengeluaran, laba rugi, dan dock pulau" width="1440" height="900" fetchpriority="high"></div>
+    <div class="lid"><img src="img/dash_d.jpg" alt="Tampilan Dashboard Toko Onies: omzet, pengeluaran, laba rugi, dan pajak" width="2000" height="1250" fetchpriority="high"></div>
     <div class="base"></div>
     <div class="fade"></div>
    </div>
@@ -246,7 +250,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
    <span class="mono" style="font-size:.8rem">Oneilverse v1.1</span>
   </div>
   <div class="shot" id="pv-shot">
-   <img id="pv-img" src="img/pro_light.png" onerror="this.src='img/dash_d.jpg'" alt="Pratinjau Tampilan Aplikasi Oneilverse">
+   <img id="pv-img" src="img/dash_d.jpg" alt="Pratinjau Tampilan Aplikasi Oneilverse">
   </div>
  </div>
 </div></section>
@@ -254,7 +258,7 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 <!-- MOBILE SHOWCASE -->
 <section style="padding-top:20px"><div class="wrap split rev">
  <div class="phones">
-  <div class="phone"><img src="img/mobile_dash.png" onerror="this.src='img/dash_p.jpg'" alt="Dashboard Toko Onies di HP" loading="lazy"></div>
+  <div class="phone"><img src="img/dash_p.jpg" alt="Dashboard Toko Onies di HP" loading="lazy"></div>
   <div class="phone"><img src="img/lr_p.jpg" alt="Laporan laba rugi di HP" loading="lazy"></div>
  </div>
  <div class="txt">
@@ -281,19 +285,19 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
    <span class="tut-step">Langkah 01 · Akses &amp; Keamanan</span>
    <h3>Masuk Sesuai Peran, Data Tetap Terjaga</h3>
    <p>Kasir, Manager, dan Owner punya pintu masuk dan PIN masing-masing. Kasir hanya mencatat transaksi — angka laba &amp; modal aman hanya untuk Owner.</p>
-   <div class="shot"><img src="img/pro_light.png" onerror="this.src='img/dash_d.jpg'" alt="Tampilan Dashboard Owner Toko Onies" loading="lazy"></div>
+   <div class="shot"><img src="img/dash_d.jpg" alt="Tampilan Dashboard Owner Toko Onies" loading="lazy"></div>
   </div>
   <div class="tut-card">
    <span class="tut-step">Langkah 02 · Kasir Kilat</span>
    <h3>Scan Barcode, Simpan Draft, &amp; Kirim Struk</h3>
    <p>Ketik atau scan barcode produk lewat alat maupun kamera HP/laptop. Terima pembayaran Tunai, QRIS, atau Transfer, lalu cetak struk atau kirim langsung ke WhatsApp pelanggan.</p>
-   <div class="shot"><img src="img/kasir_light.png" onerror="this.src='img/dash_d.jpg'" alt="Tampilan Kasir Toko Onies" loading="lazy"></div>
+   <div class="shot"><img src="img/dash_d.jpg" alt="Tampilan Kasir Toko Onies" loading="lazy"></div>
   </div>
   <div class="tut-card">
    <span class="tut-step">Langkah 03 · Kontrol Harian</span>
    <h3>Closing Kasir Jujur &amp; Stok Terpantau</h3>
    <p>Di akhir shift, tinggal cocokkan uang laci dengan catatan sistem. Stok otomatis berkurang saat barang terjual dan muncul peringatan sebelum barang habis.</p>
-   <div class="shot"><img src="img/plus_light.png" onerror="this.src='img/lr_d.jpg'" alt="Tampilan Manager & Kontrol Stok Toko Onies" loading="lazy"></div>
+   <div class="shot"><img src="img/lr_d.jpg" alt="Tampilan Manager & Kontrol Stok Toko Onies" loading="lazy"></div>
   </div>
   <div class="tut-card">
    <span class="tut-step">Langkah 04 &amp; 05 · Laporan &amp; Bahasa</span>
@@ -353,16 +357,16 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 (function(){
   var tier = 'pro', theme = 'light';
   var imgs = {
-    basic: 'img/kasir_light.png',
-    plus:  'img/plus_light.png',
-    pro:   'img/pro_light.png'
+    basic: 'img/dash_d.jpg',
+    plus:  'img/lr_d.jpg',
+    pro:   'img/dash_d.jpg'
   };
   var labels = { basic: 'Paket Basic', plus: 'Paket Plus', pro: 'Paket Pro' };
   function updatePreview(){
     var img = document.getElementById('pv-img');
     var shot = document.getElementById('pv-shot');
     var title = document.getElementById('pv-title');
-    if (img) img.src = imgs[tier] || 'img/pro_light.png';
+    if (img) img.src = imgs[tier] || 'img/dash_d.jpg';
     if (shot) shot.classList.toggle('dark-sim', theme === 'dark');
     if (title) title.innerHTML = '<b>' + labels[tier] + ' · Mode ' + (theme === 'dark' ? 'Gelap' : 'Terang') + '</b> — Tampilan 100% sesuai aplikasi Toko Onies';
     document.querySelectorAll('[data-tier]').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-tier') === tier); });
