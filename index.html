@@ -476,7 +476,7 @@ footer{padding:30px 0 50px;border-top:1px solid var(--line);font-size:13px;color
 </section>
 </main>
 
-<footer><div class="wrap row" style="justify-content:space-between;align-items:flex-start"><span>© 2026 Oneilverse</span><span style="text-align:right">Medan · Sibolga &amp; Tapteng · Pekanbaru<br><span style="font-size:12px;opacity:.8">by Neil Aura Hutabarat · Jambi</span></span></div></footer>
+<footer><div class="wrap row" style="justify-content:space-between;align-items:flex-start"><span>© 2026 Oneilverse</span><span style="text-align:right">Medan · Sibolga &amp; Tapteng · Pekanbaru<br><span style="font-size:12px;opacity:.8">by Neil Aura Hutabarat · Jambi <span id="vcount" style="margin-left:6px;font-variant-numeric:tabular-nums"></span></span></span></div></footer>
 
 <script>
 (function () {
@@ -790,6 +790,20 @@ footer{padding:30px 0 50px;border-top:1px solid var(--line);font-size:13px;color
     ['Berapa perangkat yang bisa dipakai?', 'Jumlah terminal kasir diatur per toko. Tambah terminal lewat Buka Kasir Baru atau hubungi tim daerah.']
   ];
   $('#faqs').innerHTML = FAQ.map(function (f) { return '<details><summary>' + esc(f[0]) + '</summary><p>' + esc(f[1]) + '</p></details>'; }).join('');
+
+  /* ---------- angka pengunjung (sekali per kunjungan browser) ---------- */
+  (function () {
+    var BASE = 'https://firestore.googleapis.com/v1/projects/finance-ai-master-byneilverse/databases/(default)/documents';
+    var DOC = 'projects/finance-ai-master-byneilverse/databases/(default)/documents/web_stats/site';
+    function show(n) { if (n > 0) $('#vcount').textContent = Number(n).toLocaleString('id-ID'); }
+    function read() { return fetch(BASE + '/web_stats/site' + KEY, { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) { return d && d.fields && d.fields.n ? +(d.fields.n.integerValue || d.fields.n.doubleValue || 0) : 0; }).catch(function () { return 0; }); }
+    var counted = false; try { counted = sessionStorage.getItem('ov_seen') === '1'; } catch (e) {}
+    if (counted) { read().then(show); return; }
+    fetch(BASE + ':commit' + KEY, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ writes: [{ transform: { document: DOC, fieldTransforms: [{ fieldPath: 'n', increment: { integerValue: '1' } }] } }] }) })
+      .then(function (r) { if (r.ok) { try { sessionStorage.setItem('ov_seen', '1'); } catch (e) {} } return read(); })
+      .then(show).catch(function () { read().then(show); });
+  })();
 
   /* ---------- kontak ---------- */
   var REPS = [['Medan', 'Ony Sumaryono', 'Kota Medan dan sekitarnya', '085260935595'], ['Sibolga & Tapteng', 'Adi Sutrisno', 'Sibolga dan Tapanuli Tengah', '082264703451'], ['Pekanbaru, Riau', 'Yuli Amri', 'Pekanbaru dan Riau', '08126709047']];
