@@ -579,8 +579,6 @@ footer{padding:30px 0 50px;border-top:1px solid var(--line);font-size:13px;color
       ['kasir_baru', 'Buka kasir baru', 'Tambah terminal kasir untuk perangkat lain.'],
       ['absensi', 'Absensi', 'Catat jam masuk dan pulang, rekap bulanan.'],
       ['gaji', 'Laporan gaji', 'Hitung gaji dan catat otomatis sebagai pengeluaran.'],
-      ['admin_usaha', 'Banyak admin kasir', 'Tiap admin punya PIN sendiri, diatur Owner.'],
-      ['banyak_usaha', 'Banyak usaha', 'Pisahkan pembukuan beberapa usaha dalam satu toko.'],
       ['audit', 'Riwayat audit', 'Setiap koreksi dan perubahan akun tercatat.']]],
     ['Lainnya', [
       ['dashboard', 'Kartu ringkasan', 'Ringkasan hari ini, metode bayar, target omzet, stok menipis, dan margin per produk.'],
@@ -598,7 +596,7 @@ footer{padding:30px 0 50px;border-top:1px solid var(--line);font-size:13px;color
   /* ---------- paket ---------- */
   var PRICE = { basic: { bulan: 75000, tahun: 750000 }, plus: { bulan: 149000, tahun: 1490000 }, pro: { bulan: 249000, tahun: 2490000 } };
   /* cadangan bila isi paket tidak terbaca dari server */
-  var FB_PRO = ['banyak_usaha', 'admin_usaha', 'analisa', 'bahasa', 'grafik'];
+  var FB_PRO = ['analisa', 'bahasa', 'grafik'];
   var FB_PLUS = ['import_tx', 'barcode', 'stok_scan', 'dashboard', 'audit', 'export_csv', 'arus_kas', 'anggaran', 'rekon', 'neraca_ai', 'pajak_bulanan', 'backup', 'laporan_bulanan', 'gaji', 'ledger', 'stok', 'stok_input', 'stok_closing', 'stok_habis', 'jual_produk', 'satuan_ganda'];
   var CAT = null;
   /* fitur inti: selalu ada di semua paket (tidak bisa dicentang di Atur Isi Paket) */
@@ -667,11 +665,11 @@ footer{padding:30px 0 50px;border-top:1px solid var(--line);font-size:13px;color
   var ANS = {};
   $$('.sw').forEach(function (s) { s.onclick = function () { var v = s.getAttribute('aria-checked') !== 'true'; s.setAttribute('aria-checked', v ? 'true' : 'false'); ANS[s.getAttribute('data-q')] = v; rec(); }; });
   function rec() {
-    var t = (ANS.multi || ANS.admin) ? 'pro' : (ANS.stok || ANS.lap) ? 'plus' : 'basic';
-    var why = t === 'pro' ? 'Banyak usaha atau banyak admin kasir ada di paket Pro.' : t === 'plus' ? 'Stok barang dan laporan lengkap ada di paket Plus.' : 'Kasir dan pembukuan harian sudah cukup dengan Basic.';
+    var t = ANS.lap ? 'pro' : ANS.stok ? 'plus' : 'basic';
+    var why = t === 'pro' ? 'Neraca, laporan pajak, dan analisa keuangan ada di paket Pro.' : t === 'plus' ? 'Stok barang dan laporan lengkap ada di paket Plus.' : 'Kasir dan pembukuan harian sudah cukup dengan Basic.';
     $('#rec').innerHTML = '<span class="muted">Saran kami</span><br><b>' + (t === 'pro' ? 'Pro' : t === 'plus' ? 'Plus' : 'Basic') + '</b> ' +
       '<span class="muted">· ' + rp(PRICE[t].bulan) + ' per bulan' + (t === 'basic' ? '' : ', bisa dicoba gratis 24 jam') + '</span>' +
-      '<p class="muted" style="margin:6px 0 0">' + why + '</p>';
+      '<p class="muted" style="margin:6px 0 0">' + why + ((ANS.multi || ANS.admin) ? ' Banyak usaha dan admin kasir tambahan bisa ditambahkan ke paket mana pun, hubungi tim daerah.' : '') + '</p>';
   }
 
   /* ---------- tampilan ---------- */
