@@ -315,7 +315,7 @@ footer{padding:30px 0 50px;border-top:1px solid var(--line);font-size:13px;color
   <div class="head"><h2>Basic, Plus, dan Pro.</h2>
   <p class="lead">Mulai dari Basic, naik kapan saja. Plus dan Pro bisa dicoba gratis 24 jam langsung dari aplikasi, sekali untuk tiap paket.</p></div>
   <div class="grid g3" id="cards"></div>
-  <p class="note" id="priceNote">Basic Rp 75.000 per bulan. Harga Plus dan Pro diambil langsung dari pengaturan aplikasi.</p>
+  <p class="note" id="priceNote">Basic Rp 75.000 per bulan atau Rp 750.000 per tahun. Harga Plus dan Pro diambil langsung dari pengaturan aplikasi.</p>
 
   <div class="grid g2" style="margin-top:34px;align-items:start">
     <div class="panel">
@@ -596,7 +596,7 @@ footer{padding:30px 0 50px;border-top:1px solid var(--line);font-size:13px;color
   }).join('');
 
   /* ---------- paket ---------- */
-  var PRICE = { basic: { bulan: 75000 }, plus: { bulan: 149000, tahun: 1490000 }, pro: { bulan: 249000, tahun: 2490000 } };
+  var PRICE = { basic: { bulan: 75000, tahun: 750000 }, plus: { bulan: 149000, tahun: 1490000 }, pro: { bulan: 249000, tahun: 2490000 } };
   /* cadangan bila isi paket tidak terbaca dari server */
   var FB_PRO = ['banyak_usaha', 'admin_usaha', 'analisa', 'bahasa', 'grafik'];
   var FB_PLUS = ['import_tx', 'barcode', 'stok_scan', 'dashboard', 'audit', 'export_csv', 'arus_kas', 'anggaran', 'rekon', 'neraca_ai', 'pajak_bulanan', 'backup', 'laporan_bulanan', 'gaji', 'ledger', 'stok', 'stok_input', 'stok_closing', 'stok_habis', 'jual_produk', 'satuan_ganda'];
@@ -626,7 +626,7 @@ footer{padding:30px 0 50px;border-top:1px solid var(--line);font-size:13px;color
     var feats = allFeats().filter(function (f) { return tierOfKey(f[0]) === 'basic'; }).slice(0, 10);
     return '<div class="basiccard"><span class="lg"><i>' + LOGO + '</i>ONEILVERSE</span><span class="nm">Basic</span><span class="muted" style="margin-top:6px">Kasir dan pembukuan harian yang rapi</span>' +
       '<ul>' + feats.map(function (f) { return '<li>' + TICK('currentColor') + '<span>' + esc(f[1]) + '</span></li>'; }).join('') + '</ul>' +
-      '<span class="ft"><b>' + rp(PRICE.basic.bulan) + '</b>per bulan</span></div>';
+      '<span class="ft"><b>' + rp(PRICE.basic.bulan) + '</b>per bulan · ' + rp(PRICE.basic.tahun) + '/thn</span></div>';
   }
   function renderPaket() {
     $('#cards').innerHTML = basicHtml() + cardHtml('plus') + cardHtml('pro');
