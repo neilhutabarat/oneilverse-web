@@ -1,384 +1,759 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Oneilverse — Kasir dan laporan untung rugi untuk UMKM</title>
-<meta name="description" content="Aplikasi kasir, stok, dan laporan laba rugi untuk warung, kafe, toko, dan usaha kecil. Tahu untung toko Anda setiap hari, dari HP maupun laptop.">
-<meta name="theme-color" content="#070914">
-<meta property="og:title" content="Oneilverse — Tahu untung tokomu, setiap hari">
-<meta property="og:description" content="Kasir, stok, dan laporan laba rugi dalam satu aplikasi untuk UMKM Indonesia.">
-<meta property="og:image" content="https://oneilverse.com/img/dash_d.jpg">
-<meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Crect x='3' y='3' width='114' height='114' rx='30' fill='%230E0F14'/%3E%3Crect x='3.75' y='3.75' width='112.5' height='112.5' rx='29.25' stroke='%23FFFFFF' stroke-opacity='.14' stroke-width='1.5'/%3E%3Cg transform='translate(17 17) scale(1.3125)' fill='%23FFFFFF' fill-rule='evenodd'%3E%3Cpath d='M33.7 9.1L32.3 9.2L30.9 9.3L29.5 9.4L28.1 9.6L26.7 9.9L25.3 10.3L24 10.7L22.6 11.2L21.3 11.8L19.9 12.5L18.6 13.3L17.4 14.1L16.2 15L15 16L13.9 17.1L12.8 18.2L11.8 19.3L10.9 20.5L10 21.8L9.2 23L8.6 24.3L8 25.7L7.4 27L7 28.4L6.6 29.8L6.3 31.2L6.2 32.6L6 34L6 35.3L6 36.7L6.2 38.1L6.4 39.4L6.7 40.8L7.1 42L7.6 43.2L8.2 44.4L8.9 45.5L9.8 46.5L10.7 47.3L11.6 48L12.7 48.6L13.8 49L15 49.3L16.2 49.4L17.4 49.2L18.6 49L19.7 48.5L20.9 47.9L22 47.1L23 46.3L24 45.3L25 44.2L25.9 43L26.7 41.8L27.5 40.5L28.2 39.2L28.9 37.8L29.5 36.5L30.1 35.1L30.6 33.7L31.1 32.3L31.5 30.9L31.9 29.6L32.3 28.2L32.6 26.9L32.9 25.6L33.1 24.4L33.2 23.3L33.2 22.3L33.2 21.4L33.1 20.7L32.9 20.1L32.6 19.7L32.2 19.5L31.8 19.5L31.3 19.7L30.8 20.1L30.3 20.6L29.8 21.4L29.2 22.3L28.8 23.3L28.3 24.4L27.8 25.6L27.3 26.9L26.9 28.1L26.4 29.5L25.9 30.8L25.4 32.1L24.9 33.5L24.3 34.8L23.6 36L22.9 37.2L22.2 38.3L21.4 39.3L20.5 40.1L19.6 40.9L18.6 41.4L17.6 41.7L16.6 41.9L15.7 41.8L14.8 41.6L13.9 41.1L13.1 40.5L12.4 39.7L11.8 38.7L11.4 37.7L11 36.5L10.8 35.3L10.7 34L10.7 32.7L10.9 31.4L11.1 30L11.4 28.7L11.9 27.4L12.4 26.1L13.1 24.8L13.8 23.6L14.6 22.5L15.5 21.4L16.5 20.4L17.6 19.5L18.7 18.7L19.9 18L21.1 17.4L22.4 16.8L23.7 16.4L25 16L26.4 15.8L27.8 15.6L29.1 15.4L30.5 15.3L31.9 15.3L33.3 15.3L34.7 15.3L36.1 15.4L37.5 15.6L38.8 15.8L40.2 16.2L41.5 16.6L42.8 17.1L44 17.7L45.2 18.5L46.3 19.3L47.3 20.3L48.3 21.3L49.1 22.4L49.9 23.6L50.6 24.8L51.1 26.1L51.6 27.4L51.9 28.8L52.1 30.2L52.2 31.5L52.2 32.9L52 34.3L51.8 35.6L51.4 37L51 38.3L50.4 39.6L49.7 40.9L48.9 42.1L48 43.3L47 44.5L46 45.5L44.9 46.5L43.8 47.5L42.6 48.4L41.5 49.2L40.4 50L39.4 50.8L38.5 51.4L37.7 52.1L37.1 52.6L36.7 53.2L36.5 53.6L36.5 54L36.7 54.4L37.1 54.6L37.7 54.8L38.5 54.9L39.5 54.8L40.5 54.7L41.6 54.4L42.9 54.1L44.1 53.6L45.3 53.1L46.6 52.4L47.8 51.7L49 50.8L50.1 49.9L51.2 48.9L52.2 47.8L53.2 46.7L54 45.5L54.8 44.2L55.5 42.9L56.1 41.6L56.6 40.3L57.1 38.9L57.4 37.5L57.7 36.2L57.9 34.8L58 33.4L58 32L57.9 30.6L57.8 29.2L57.6 27.8L57.3 26.4L56.9 25L56.4 23.7L55.9 22.4L55.2 21.1L54.5 19.8L53.7 18.6L52.9 17.4L51.9 16.3L50.8 15.2L49.7 14.2L48.6 13.4L47.3 12.6L46.1 11.9L44.8 11.2L43.4 10.7L42.1 10.3L40.7 9.9L39.3 9.6L37.9 9.4L36.5 9.2L35.1 9.2Z'/%3E%3Cg transform='translate(35.5 33) rotate(-4) scale(.62) translate(-32 -32)'%3E%3Cpath d='M29.5 12.2L29 12.4L28.6 12.7L28.1 13.1L27.6 13.6L27.1 14.1L26.6 14.8L26.1 15.4L25.6 16.1L25.1 16.9L24.7 17.6L24.2 18.4L23.8 19.2L23.3 20L22.9 20.8L22.5 21.6L22 22.4L21.6 23.2L21.2 24L20.7 24.8L20.3 25.6L19.9 26.4L19.5 27.2L19.1 28L18.6 28.8L18.2 29.6L17.8 30.4L17.4 31.2L17 32.1L16.6 32.9L16.2 33.7L15.8 34.5L15.4 35.3L15 36.1L14.6 37L14.2 37.8L13.8 38.6L13.4 39.4L13.1 40.2L12.7 41.1L12.3 41.9L12 42.7L11.6 43.5L11.3 44.3L11 45.1L10.8 45.9L10.5 46.7L10.4 47.4L10.3 48.1L10.3 48.8L10.3 49.4L10.5 49.9L10.7 50.4L10.9 50.7L11.3 50.9L11.6 50.9L12 50.9L12.4 50.7L12.9 50.4L13.3 50L13.7 49.5L14.1 48.9L14.5 48.2L14.9 47.5L15.3 46.8L15.7 46L16.1 45.3L16.6 44.5L17 43.7L17.4 42.9L17.9 42.1L18.4 41.4L18.9 40.6L19.4 39.9L19.9 39.2L20.5 38.5L21.1 37.9L21.8 37.4L22.5 36.8L23.1 36.4L23.9 36L24.6 35.6L25.3 35.4L26.1 35.3L26.8 35.2L27.4 35.3L28.1 35.4L28.7 35.7L29.3 36L29.8 36.5L30.2 37L30.6 37.7L30.9 38.4L31.2 39.1L31.5 39.9L31.7 40.8L31.9 41.6L32.1 42.5L32.3 43.4L32.5 44.3L32.7 45.2L33 46L33.3 46.8L33.7 47.6L34.1 48.4L34.5 49.1L35 49.8L35.6 50.4L36.2 50.9L36.9 51.4L37.6 51.8L38.3 52.2L39.1 52.4L39.8 52.6L40.6 52.7L41.5 52.7L42.3 52.6L43.1 52.5L43.9 52.2L44.7 52L45.5 51.6L46.2 51.2L47 50.8L47.7 50.3L48.4 49.8L49 49.2L49.6 48.7L50.2 48L50.8 47.4L51.3 46.7L51.8 46L52.2 45.3L52.6 44.5L52.9 43.8L53.1 43.1L53.3 42.4L53.4 41.8L53.4 41.2L53.4 40.7L53.3 40.2L53.1 39.9L52.8 39.7L52.5 39.6L52.2 39.6L51.8 39.8L51.4 40.1L51 40.5L50.6 40.9L50.2 41.5L49.7 42.1L49.2 42.7L48.7 43.4L48.2 44L47.6 44.6L47 45.2L46.3 45.8L45.7 46.3L45 46.7L44.3 47L43.5 47.3L42.8 47.5L42.1 47.6L41.4 47.6L40.7 47.4L40 47.2L39.5 46.9L38.9 46.4L38.4 45.9L38 45.3L37.7 44.6L37.4 43.8L37.1 43L36.9 42.2L36.8 41.3L36.6 40.4L36.5 39.5L36.3 38.6L36.2 37.7L36 36.8L35.8 36L35.5 35.1L35.2 34.3L34.9 33.6L34.5 32.9L34 32.2L33.5 31.6L32.9 31.1L32.3 30.6L31.6 30.1L31 29.7L30.3 29.3L29.7 28.9L29.1 28.4L28.6 28L28.1 27.5L27.8 27L27.5 26.4L27.3 25.8L27.2 25.1L27.3 24.4L27.4 23.7L27.5 23L27.8 22.2L28.1 21.4L28.4 20.7L28.7 19.9L29.1 19.1L29.5 18.3L29.9 17.5L30.2 16.8L30.5 16.1L30.7 15.4L30.9 14.7L31 14.1L31.1 13.5L31 13.1L30.9 12.7L30.6 12.4L30.3 12.2L29.9 12.2Z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Oneilverse — Kasir & pembukuan UMKM</title>
+<meta name="description" content="Oneilverse: kasir, stok, dan laporan laba rugi untuk UMKM. Jalan di HP dan laptop lewat browser. Paket Basic, Plus, dan Pro.">
+<meta name="theme-color" content="#0c0c0f">
+<link rel="icon" type="image/svg+xml" href="img/logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#070914;--bg2:#0b0e1c;--line:#1b2236;--tx:#f2f4f8;--mut:#8b93a9;--indigo:#5b6ef0;--indigo2:#8b97f7;--green:#34d399;--rose:#fb7185;--amber:#f0b94a}
-*{box-sizing:border-box;margin:0;padding:0}
-html{overflow-x:hidden;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--bg);color:var(--tx);font-family:"Plus Jakarta Sans",Inter,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-img{display:block;max-width:100%;height:auto}
-a{color:inherit;text-decoration:none}
-button{font-family:inherit;cursor:pointer}
-:focus-visible{outline:2px solid var(--indigo2);outline-offset:3px;border-radius:8px}
-.mono{font-family:"JetBrains Mono",monospace}
+:root{
+  --bg:#ececf0;--bg2:#f7f7f9;--card:#fbfbfc;--ink:#111114;--ink2:#4a4b55;--ink3:#7b7d88;--line:rgba(17,17,20,.09);
+  --silver:linear-gradient(155deg,#d9d9df 0%,#ebebef 40%,#f8f8fa 72%,#e1e1e6 100%);
+  --acc:#4f46e5;--gold:#cda75c;--gold2:#e5c373;--ok:#0f9d6b;--bad:#d1314d;
+  --shadow:0 14px 34px -18px rgba(15,15,25,.35);--r:20px;
+  --font:"Plus Jakarta Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+:root[data-mode="gelap"]{
+  --bg:#08080a;--bg2:#101013;--card:#141417;--ink:#f3f3f5;--ink2:#b9bac4;--ink3:#80828e;--line:rgba(255,255,255,.09);
+  --silver:linear-gradient(155deg,#1f1f24 0%,#111114 40%,#0a0a0c 72%,#16161a 100%);
+  --acc:#a5a0ff;--shadow:0 14px 34px -18px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+html,body{margin:0;scrollbar-width:none}
+html::-webkit-scrollbar,body::-webkit-scrollbar,*::-webkit-scrollbar{display:none;width:0;height:0}
+*{scrollbar-width:none}
+body{font-family:var(--font);color:var(--ink);background:var(--bg);background-image:radial-gradient(1100px 700px at 20% -10%,rgba(255,255,255,.7),transparent 60%),linear-gradient(155deg,#d4d4da 0%,#e9e9ed 38%,#f6f6f8 70%,#dfdfe4 100%);background-attachment:fixed;line-height:1.55;-webkit-font-smoothing:antialiased;min-height:100vh}
+:root[data-mode="gelap"] body{background-image:radial-gradient(1100px 700px at 20% -10%,rgba(255,255,255,.07),transparent 60%),linear-gradient(155deg,#1c1c21 0%,#0b0b0d 38%,#050506 70%,#121215 100%)}
+a{color:inherit}
+img{max-width:100%;height:auto;display:block}
+.mcard .wm svg,.mcard .lg i svg,.basiccard .lg i svg{width:100%;height:100%;display:block}
 .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
-h1,h2,h3{letter-spacing:-.035em;line-height:1.06;font-weight:800}
-h1{font-size:clamp(2.5rem,7vw,5.1rem)}
-h2{font-size:clamp(1.9rem,4.4vw,3.2rem)}
-h3{font-size:1.22rem;letter-spacing:-.02em;line-height:1.25}
-p.lead{color:var(--mut);font-size:clamp(1.05rem,1.8vw,1.28rem);max-width:36em}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:999px;font-weight:700;font-size:.98rem;transition:transform .2s,background .2s,border-color .2s;border:0}
-.btn-wa{background:#25d366;color:#04210f}
-.btn-wa:hover{transform:translateY(-2px);background:#3be07b}
-.btn-ghost{border:1px solid #262f4a;color:var(--tx);background:transparent}
-.btn-ghost:hover{border-color:#44518a}
-.btn svg{width:19px;height:19px;flex:none}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:8px}
 
-/* nav */
-nav{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(7,9,20,.78);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:62px;gap:12px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.01em;font-size:1.02rem}
-.brand i{width:28px;height:28px;border-radius:9px;background:#0e0f14;border:1px solid rgba(255,255,255,.14);display:grid;place-items:center;flex:none}
-.brand i svg{width:72%;height:72%}
-.brand b{letter-spacing:.06em;font-size:.92em}
-.brand .plus{display:inline-block;transform:skewX(-14deg);font-weight:800;margin-left:1px;color:var(--indigo2)}
-nav .links{display:flex;gap:8px;font-size:.88rem;color:var(--mut);background:#0c1020;padding:4px;border-radius:999px;border:1px solid #1e2640}
-nav .links a{padding:7px 14px;border-radius:999px;font-weight:600;transition:background .2s,color .2s}
-nav .links a:hover,nav .links a.on{color:var(--tx);background:#1b2340}
-nav .btn{padding:9px 18px;font-size:.86rem;background:var(--tx);color:#070914}
-@media(max-width:780px){
- nav .wrap{flex-wrap:wrap;height:auto;padding:10px 14px;gap:8px}
- nav .links{order:3;width:100%;justify-content:center;overflow-x:auto}
- nav .links a{padding:6px 11px;font-size:.82rem;white-space:nowrap}
-}
+/* ---------- bar atas ---------- */
+.top{position:sticky;top:0;z-index:50;padding:12px 0 0;backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);background:linear-gradient(to bottom,color-mix(in srgb,var(--bg) 82%,transparent),color-mix(in srgb,var(--bg) 55%,transparent))}
+.bar{display:flex;align-items:center;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;letter-spacing:.02em;font-size:17px}
+.brand img{width:34px;height:34px}
+.status{display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:600;color:var(--ink2);padding:5px 11px;border-radius:999px;background:var(--card);border:1px solid var(--line)}
+.dot{width:7px;height:7px;border-radius:50%;background:#a3a3ab}
+.dot.on{background:var(--ok);box-shadow:0 0 0 3px rgba(15,157,107,.15)}
+.sp{flex:1}
+.mode{all:unset;cursor:pointer;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--card);border:1px solid var(--line);color:var(--ink)}
+.cta{all:unset;cursor:pointer;padding:9px 16px;border-radius:999px;background:var(--ink);color:var(--bg);font-weight:700;font-size:13.5px;white-space:nowrap}
+.tabs{display:flex;gap:4px;overflow-x:auto;margin-top:12px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.tabs button{all:unset;cursor:pointer;flex:none;padding:8px 14px;border-radius:999px;font-size:13.5px;font-weight:600;color:var(--ink2);transition:background .15s,color .15s}
+.tabs button:hover{color:var(--ink);background:color-mix(in srgb,var(--card) 70%,transparent)}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
 
-/* hero */
-.hero{padding:126px 0 0;text-align:center;position:relative;overflow:hidden}
-.hero::before{content:"";position:absolute;left:50%;top:-10%;width:900px;height:700px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(91,110,240,.24),transparent);pointer-events:none}
-.hero h1{max-width:12.5em;margin:0 auto 20px;position:relative}
-.hero p.lead{margin:0 auto 32px;position:relative}
-.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative}
-.badge{display:inline-flex;align-items:center;gap:8px;margin-bottom:20px;padding:7px 16px;border:1px solid #232c45;border-radius:999px;color:var(--mut);font-size:.85rem;position:relative}
-.badge .dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(52,211,153,.18)}
+/* ---------- umum ---------- */
+main{padding:34px 0 70px}
+section[role="tabpanel"]{display:none}
+section[role="tabpanel"].on{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){section[role="tabpanel"].on{animation:none}*{transition:none!important}}
+h1{font-size:clamp(34px,5.4vw,58px);line-height:1.05;letter-spacing:-.025em;margin:0 0 16px;font-weight:800}
+h2{font-size:clamp(24px,3.2vw,34px);line-height:1.15;letter-spacing:-.02em;margin:0 0 10px;font-weight:800}
+h3{font-size:17px;margin:0 0 6px;font-weight:700}
+.lead{font-size:clamp(15.5px,1.6vw,18px);color:var(--ink2);max-width:60ch;margin:0 0 22px}
+.muted{color:var(--ink3);font-size:13.5px}
+.head{margin-bottom:26px;max-width:70ch}
+.panel{background:var(--silver);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.55);padding:22px}
+:root[data-mode="gelap"] .panel{box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.05)}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media (max-width:900px){.g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:620px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.btn{all:unset;cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;font-weight:700;font-size:14px;background:var(--ink);color:var(--bg)}
+.btn.ghost{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--ink2)}
 
-/* laptop */
-.stage{perspective:1800px;margin:58px auto 0;max-width:980px;padding:0 12px;position:relative}
-.laptop{position:relative}
-.lid{background:#10141f;border:1px solid #2b3350;border-radius:18px 18px 6px 6px;padding:12px 12px 14px;box-shadow:0 40px 120px -20px rgba(91,110,240,.35),0 0 0 1px #05070c;transform-origin:50% 100%;animation:open 1.5s cubic-bezier(.2,.8,.2,1) both}
-.lid::before{content:"";position:absolute;left:50%;top:5px;width:5px;height:5px;border-radius:50%;background:#1c2438;transform:translateX(-50%)}
-.lid img{border-radius:6px;width:100%}
-.base{height:16px;margin:0 -3.5%;background:linear-gradient(#262d42,#141927);border-radius:0 0 22px 22px;border:1px solid #2b3350;border-top:0;position:relative}
-.base::after{content:"";position:absolute;left:50%;top:0;width:16%;height:6px;border-radius:0 0 10px 10px;background:#0b0e17;transform:translateX(-50%)}
-@keyframes open{from{transform:rotateX(78deg);opacity:.2}to{transform:rotateX(0);opacity:1}}
-.fade{position:absolute;inset:auto 0 -2px 0;height:120px;background:linear-gradient(transparent,var(--bg));pointer-events:none}
+/* ---------- beranda ---------- */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
+@media (max-width:900px){.hero{grid-template-columns:1fr}}
+@media (max-width:560px){#stext{display:none}.status{padding:8px}.brand{font-size:16px}.cta{padding:8px 13px;font-size:13px}.facts{grid-template-columns:1fr}}
+html{overflow-x:clip}
+.shot{border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(10,10,20,.55);background:#000}
+.stack{position:relative;padding:10px 0 40px}
+.stack .shot{transform:rotate(-1.2deg)}
+.stack .cardmini{position:absolute;right:0;bottom:-4px;width:min(46%,230px)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+.facts div{padding:14px;border-radius:16px;background:var(--card);border:1px solid var(--line)}
+.facts b{display:block;font-size:22px;letter-spacing:-.02em}
+.facts span{font-size:12.5px;color:var(--ink3)}
+.why{margin-top:54px}
+.why .panel p{margin:0;color:var(--ink2);font-size:14.5px}
+.ic{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:var(--ink);color:var(--bg);margin-bottom:12px}
+.ic svg{width:19px;height:19px}
 
-/* sections */
-section{padding:110px 0}
-.split{display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:center}
-.split.rev{grid-template-columns:1.15fr 1fr}
-.split.rev .txt{order:2}
-.txt h2{margin-bottom:18px}
-.txt p{color:var(--mut);font-size:1.08rem;max-width:32em}
-.txt ul{list-style:none;margin-top:24px;display:grid;gap:12px}
-.txt li{padding-left:28px;position:relative;color:#c9d0df}
-.txt li::before{content:"";position:absolute;left:0;top:.55em;width:14px;height:8px;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg) translateY(-3px)}
-.shot{border-radius:18px;border:1px solid #232c45;overflow:hidden;box-shadow:0 30px 90px -30px rgba(91,110,240,.35);background:#0c1020}
-.shot img{width:100%;transition:filter .3s ease}
-.shot.dark-sim img{filter:invert(1) hue-rotate(180deg)}
-.phones{display:flex;justify-content:center;gap:22px;align-items:flex-start}
-.phone{width:min(260px,44%);border-radius:38px;padding:9px;background:#10141f;border:1px solid #2b3350;box-shadow:0 30px 80px -25px rgba(91,110,240,.4);position:relative}
-.phone:nth-child(2){margin-top:54px}
-.phone img{border-radius:30px;width:100%}
-.phone::before{content:"";position:absolute;left:50%;top:15px;width:34%;height:16px;border-radius:12px;background:#05070c;transform:translateX(-50%);z-index:2}
+/* ---------- kartu member (sama dengan aplikasi) ---------- */
+.mcard{position:relative;overflow:hidden;border-radius:22px;aspect-ratio:5/8;padding:18px 18px 14px;color:#fff;display:flex;flex-direction:column;background:linear-gradient(155deg,#26262b 0%,#0a0a0c 38%,#000 70%,#16161a 100%);box-shadow:0 26px 50px -16px rgba(0,0,0,.6),inset 0 0 0 1px #3a3a41,inset 0 1px 0 rgba(255,255,255,.16);transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .25s ease-out;--mx:30%;--my:10%}
+.mcard.pro{background:linear-gradient(155deg,#3a2c12 0%,#14100a 36%,#000 68%,#241b0b 100%);box-shadow:0 26px 50px -16px rgba(0,0,0,.6),0 0 0 1px #6f5320,0 0 0 3px #000,0 0 0 4.5px var(--gold2),0 0 28px rgba(229,195,115,.22),inset 0 1px 0 rgba(255,232,170,.45)}
+.mcard .foil{position:absolute;inset:0;pointer-events:none;background:radial-gradient(240px 180px at var(--mx) var(--my),rgba(255,255,255,.2),transparent 62%);mix-blend-mode:screen}
+.mcard.pro .foil{background:radial-gradient(260px 200px at var(--mx) var(--my),rgba(255,226,150,.36),transparent 62%)}
+.mcard .wm{display:block;position:absolute;right:-44px;bottom:54px;width:220px;height:220px;opacity:.06;color:#fff}.mcard.pro .wm{opacity:.1;color:var(--gold2)}
+.mcard .lg{display:flex;align-items:center;gap:7px;font-size:9.5px;font-weight:700;letter-spacing:.3em;color:#a3a3ab;position:relative}
+.mcard.pro .lg{color:#d9b866}
+.mcard .lg i{width:20px;height:20px;display:inline-block}
+.mcard .lg .pl{font-style:normal;display:inline-block;transform:skewX(-14deg);font-size:14px;font-weight:800;letter-spacing:0;color:#fff;margin-left:-3px}
+.mcard .lg .pp{font-style:normal;font-size:8px;font-weight:800;letter-spacing:.14em;padding:3px 6px 2px;border-radius:4px;background:#17140c;color:var(--gold);box-shadow:inset 0 0 0 1px rgba(205,167,92,.5)}
+.mcard .nm{display:flex;align-items:center;gap:10px;font-family:"Playfair Display",Didot,Georgia,serif;font-size:44px;line-height:1;font-weight:700;margin-top:18px;position:relative;color:#f4f4f5}
+.mcard.pro .nm span{background:linear-gradient(120deg,#f8e7b0,#d4a94f 42%,#fff2c8 58%,#c49a45);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mcard .vip{font-family:var(--font);font-size:9px;font-weight:800;letter-spacing:.22em;padding:4px 8px;border-radius:5px;background:linear-gradient(135deg,#f6e0a0,#c49a45);color:#1a1405}
+.mcard.plus .vip{background:linear-gradient(135deg,#fff,#c9c9d0);color:#000;font-size:17px;letter-spacing:0;padding:2px 9px}
+.mcard .tl{font-size:11.5px;color:#9a9aa3;margin-top:6px;position:relative}.mcard.pro .tl{color:#c9ab6a}
+.mcard ul{list-style:none;margin:14px 0 0;padding:12px 0 0;border-top:1px solid rgba(255,255,255,.12);display:flex;flex-direction:column;gap:8px;position:relative;flex:1;min-height:0;overflow:hidden}
+.mcard.pro ul{border-color:rgba(229,195,115,.32)}
+.mcard li{display:flex;gap:9px;align-items:flex-start;font-size:12.5px;line-height:1.3;font-weight:600;color:#ececef}
+.mcard li svg{flex:none;margin-top:1px}
+.mcard .ft{display:flex;justify-content:space-between;align-items:flex-end;position:relative;padding-top:10px;border-top:1px solid rgba(255,255,255,.1)}
+.mcard.pro .ft{border-color:rgba(229,195,115,.25)}
+.mcard .pr b{display:block;font-size:20px;letter-spacing:-.01em}
+.mcard .pr{font-size:10.5px;color:#9a9aa3}
+.mcard .tg{font-size:10.5px;font-weight:700;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.1)}
+.mcard.pro .tg{background:rgba(229,195,115,.16);color:#f1d58a}
+.cardmini .mcard{aspect-ratio:5/7.2}
+.cardmini .mcard ul{display:none}
+.basiccard{border-radius:22px;padding:20px;background:var(--silver);border:1px solid var(--line);box-shadow:var(--shadow);display:flex;flex-direction:column;aspect-ratio:5/8}
+.basiccard .nm{font-family:"Playfair Display",Georgia,serif;font-size:44px;font-weight:700;line-height:1;margin-top:18px}
+.basiccard .lg{font-size:9.5px;font-weight:700;letter-spacing:.3em;color:var(--ink3);display:flex;gap:7px;align-items:center}
+.basiccard .lg i{width:20px;height:20px;display:inline-block;color:var(--ink)}
+.basiccard ul{list-style:none;margin:14px 0 0;padding:12px 0 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:8px;flex:1;overflow:hidden}
+.basiccard li{display:flex;gap:9px;font-size:12.5px;font-weight:600;color:var(--ink2)}
+.basiccard .ft{padding-top:10px;border-top:1px solid var(--line);font-size:12px;color:var(--ink3)}
+.basiccard .ft b{display:block;font-size:17px;color:var(--ink)}
 
-.statement{padding:120px 0;text-align:center;background:var(--bg2);border-block:1px solid var(--line)}
-.statement p{font-size:clamp(1.65rem,4vw,2.9rem);font-weight:800;letter-spacing:-.035em;line-height:1.15;max-width:20em;margin:0 auto;color:#d8deec}
-.statement b{color:var(--tx)}
+/* ---------- tabel paket ---------- */
+.cmp{width:100%;border-collapse:separate;border-spacing:0;font-size:14px}
+.cmp th,.cmp td{padding:11px 12px;text-align:left;border-bottom:1px solid var(--line)}
+.cmp th{font-size:12px;letter-spacing:.06em;text-transform:none;color:var(--ink3);font-weight:700;position:sticky;top:0;background:var(--bg2)}
+.cmp td.c,.cmp th.c{text-align:center;width:80px}
+.cmp tr.grp td{background:transparent;font-weight:800;color:var(--ink);padding-top:22px;font-size:13px}
+.cmp .y{color:var(--ok);font-weight:800}.cmp .n{color:var(--ink3)}
+.tblwrap{overflow-x:auto;border-radius:16px;border:1px solid var(--line);background:var(--card)}
+.note{font-size:12.5px;color:var(--ink3);margin-top:10px}
 
-/* gallery / paket switcher */
-.bar-ctrl{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;margin:34px 0 24px}
-.tabs{display:inline-flex;gap:6px;padding:5px;border-radius:999px;background:#0c1020;border:1px solid #1f2744}
-.tab-btn{border:0;background:transparent;color:var(--mut);padding:9px 18px;border-radius:999px;font-weight:700;font-size:.9rem;transition:all .2s}
-.tab-btn.on{background:var(--indigo);color:#fff;box-shadow:0 6px 18px rgba(91,110,240,.35)}
-.tier-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:32px}
-.tier-card{padding:24px;border-radius:20px;border:1px solid #232c45;background:#0a0e1c;transition:border-color .2s,transform .2s}
-.tier-card.on{border-color:var(--indigo2);background:linear-gradient(160deg,#0f1630,#0a0e1c)}
-.tier-card h3{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.tier-badge{font-size:.72rem;font-weight:800;padding:3px 10px;border-radius:999px;text-transform:uppercase;letter-spacing:.05em}
-.tier-badge.b{background:rgba(148,163,184,.18);color:#cbd5e1}
-.tier-badge.p{background:rgba(52,211,153,.18);color:var(--green)}
-.tier-badge.r{background:rgba(139,151,247,.22);color:var(--indigo2)}
-.tier-card p{font-size:.9rem;color:var(--mut);margin-bottom:14px}
-.tier-card ul{list-style:none;display:grid;gap:7px;font-size:.86rem;color:#cbd5e1}
-.tier-card li::before{content:"✓ ";color:var(--green);font-weight:800}
-.preview-box{border:1px solid #232c45;border-radius:22px;padding:18px;background:#0a0e1a}
-.preview-cap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:14px;font-size:.9rem;color:var(--mut)}
-.preview-cap b{color:var(--tx)}
+/* ---------- kalkulator ---------- */
+.q{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.q:last-of-type{border-bottom:0}
+.sw{all:unset;cursor:pointer;width:46px;height:26px;border-radius:999px;background:color-mix(in srgb,var(--ink3) 35%,transparent);position:relative;flex:none;transition:background .15s}
+.sw::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.25);transition:transform .15s}
+.sw[aria-checked="true"]{background:var(--ink)}.sw[aria-checked="true"]::after{transform:translateX(20px)}
+.rec{margin-top:16px;padding:16px;border-radius:16px;background:var(--card);border:1px solid var(--line)}
+.rec b{font-size:20px}
 
-/* tutorial */
-.tut-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:42px}
-.tut-card{border:1px solid #232c45;border-radius:22px;padding:24px;background:#0a0e1c;display:flex;flex-direction:column;gap:14px}
-.tut-step{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--indigo2)}
-.tut-card h3{font-size:1.3rem}
-.tut-card p{color:var(--mut);font-size:.95rem}
-.tut-card .shot{margin-top:auto}
+/* ---------- tampilan ---------- */
+.seg{display:inline-flex;padding:3px;border-radius:999px;background:var(--card);border:1px solid var(--line);gap:2px}
+.seg button{all:unset;cursor:pointer;padding:7px 14px;border-radius:999px;font-size:13px;font-weight:700;color:var(--ink2)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.view{display:grid;grid-template-columns:1.5fr 1fr;gap:22px;align-items:start;margin-top:16px}
+@media (max-width:900px){.view{grid-template-columns:1fr}}
+.fn{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.fn li{padding-left:14px;border-left:2px solid var(--line)}
+.fn b{display:block;font-size:14px}
+.fn span{font-size:13.5px;color:var(--ink2)}
+.gal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+@media (max-width:700px){.gal{grid-template-columns:1fr}}
+.gal figure{margin:0}
+.gal figcaption{margin-top:10px;font-size:13.5px;color:var(--ink2)}
+.gal figcaption b{display:block;color:var(--ink);font-size:14.5px}
+.dock{display:grid;gap:12px}
+.dock img{border-radius:14px;border:1px solid var(--line);background:#000;max-width:100%}
+.swatch{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.swatch div{height:92px;border-radius:16px;border:1px solid var(--line);padding:12px;font-size:12.5px;font-weight:700;display:flex;align-items:flex-end}
 
-/* roles & who */
-.roles{margin-top:48px;border-top:1px solid var(--line)}
-.role{display:grid;grid-template-columns:200px 1fr;gap:20px 40px;padding:28px 0;border-bottom:1px solid var(--line);align-items:baseline}
-.role h3{font-size:clamp(1.45rem,3vw,2.1rem);letter-spacing:-.03em}
-.role p{color:var(--mut);max-width:38em}
-.role:nth-child(1) h3{color:var(--green)}.role:nth-child(2) h3{color:var(--indigo2)}.role:nth-child(3) h3{color:var(--amber)}
-.head{max-width:36em}
-.head p{margin-top:16px;color:var(--mut);font-size:1.1rem}
-.who{display:flex;flex-wrap:wrap;gap:10px;margin-top:36px}
-.who span{padding:10px 18px;border:1px solid #232c45;border-radius:999px;color:#c9d0df;font-weight:600;background:#0a0e18;font-size:.92rem}
+/* ---------- versi ---------- */
+.rel{border-left:2px solid var(--line);padding:0 0 26px 20px;position:relative}
+.rel::before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--ink)}
+.rel.now::before{background:var(--ok);box-shadow:0 0 0 4px rgba(15,157,107,.15)}
+.rel h3{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.rel h3 small{font-size:12.5px;color:var(--ink3);font-weight:600}
+.rel ul{margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:7px}
+.rel li{font-size:14px;color:var(--ink2)}
+.tag{display:inline-block;font-size:10.5px;font-weight:800;padding:2px 7px;border-radius:6px;margin-right:6px;vertical-align:1px}
+.tag.baru{background:rgba(79,70,229,.12);color:#4f46e5}.tag.perubahan{background:rgba(205,167,92,.18);color:#8a6a24}.tag.perbaikan{background:rgba(15,157,107,.13);color:#0b7a53}.tag.keamanan{background:rgba(209,49,77,.12);color:#b42340}
+:root[data-mode="gelap"] .tag.baru{color:#b8b3ff}:root[data-mode="gelap"] .tag.perubahan{color:#e5c373}:root[data-mode="gelap"] .tag.perbaikan{color:#5fd4a6}:root[data-mode="gelap"] .tag.keamanan{color:#ff8fa3}
 
-/* contacts per region */
-.ct-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:44px}
-.ct-card{padding:26px;border-radius:22px;border:1px solid #232c45;background:#0a0e1c;display:flex;flex-direction:column;gap:10px}
-.ct-city{display:inline-block;align-self:flex-start;padding:4px 12px;border-radius:999px;background:rgba(91,110,240,.16);color:var(--indigo2);font-size:.78rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
-.ct-name{font-size:1.25rem;font-weight:800;margin-top:4px}
-.ct-meta{font-size:.9rem;color:var(--mut);line-height:1.5}
-.ct-card .btn{margin-top:auto;justify-content:center;padding:12px 18px;font-size:.92rem}
+/* ---------- coba kasir ---------- */
+.pos{display:grid;grid-template-columns:1.1fr 1fr;gap:16px}
+@media (max-width:820px){.pos{grid-template-columns:1fr}}
+.prods{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.prod{all:unset;cursor:pointer;padding:12px;border-radius:14px;background:var(--card);border:1px solid var(--line)}
+.prod b{display:block;font-size:14px}.prod span{font-size:12.5px;color:var(--ink3)}
+.prod:active{transform:translateY(1px)}
+.line{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+.qty{display:inline-flex;align-items:center;gap:8px}
+.qty button{all:unset;cursor:pointer;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;background:var(--card);border:1px solid var(--line);font-weight:800}
+.tot{display:flex;justify-content:space-between;font-weight:800;font-size:18px;margin:14px 0 10px}
+.inp{all:unset;box-sizing:border-box;width:100%;padding:11px 13px;border-radius:12px;background:var(--card);border:1.5px solid color-mix(in srgb,var(--ink) 30%,transparent);font-size:15px;font-weight:700}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.chips button{all:unset;cursor:pointer;font-size:12.5px;font-weight:700;padding:6px 10px;border-radius:10px;background:var(--card);border:1px solid var(--line)}
+.receipt{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:12.5px;background:#fff;color:#111;border-radius:12px;padding:16px;border:1px dashed #bbb;white-space:pre;overflow-x:auto}
 
-footer{border-top:1px solid var(--line);padding:34px 0;color:var(--mut);font-size:.88rem}
-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
-
-@media(max-width:900px){
- section{padding:80px 0}
- .split,.split.rev{grid-template-columns:1fr;gap:40px}
- .split.rev .txt{order:0}
- .tier-cards,.tut-grid,.ct-grid{grid-template-columns:1fr}
- .role{grid-template-columns:1fr;gap:8px}
- .hero{padding-top:104px}
-}
-@media(prefers-reduced-motion:reduce){.lid{animation:none}html{scroll-behavior:auto}.btn{transition:none}}
+/* ---------- faq & kontak ---------- */
+details{border-bottom:1px solid var(--line);padding:14px 0}
+summary{cursor:pointer;font-weight:700;font-size:15px;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";font-weight:800;color:var(--ink3)}
+details[open] summary::after{content:"−"}
+details p{margin:10px 0 0;color:var(--ink2);font-size:14.5px;max-width:75ch}
+.rep h3{margin-bottom:2px}
+.rep .muted{margin-bottom:12px}
+label.f{display:block;font-size:12.5px;font-weight:700;color:var(--ink2);margin:12px 0 6px}
+select.inp{appearance:none}
+footer{padding:30px 0 50px;border-top:1px solid var(--line);font-size:13px;color:var(--ink3)}
+.steps{counter-reset:s;list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:30px 1fr;gap:12px;font-size:14.5px;color:var(--ink2)}
+.steps li::before{content:counter(s);width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:var(--bg);font-weight:800;font-size:13px}
+.steps b{color:var(--ink)}
 </style>
 </head>
 <body>
-<nav><div class="wrap">
- <a class="brand" href="#home"><i><svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg"><g fill="#fff" fill-rule="evenodd"><path d="M33.7 9.1L32.3 9.2L30.9 9.3L29.5 9.4L28.1 9.6L26.7 9.9L25.3 10.3L24 10.7L22.6 11.2L21.3 11.8L19.9 12.5L18.6 13.3L17.4 14.1L16.2 15L15 16L13.9 17.1L12.8 18.2L11.8 19.3L10.9 20.5L10 21.8L9.2 23L8.6 24.3L8 25.7L7.4 27L7 28.4L6.6 29.8L6.3 31.2L6.2 32.6L6 34L6 35.3L6 36.7L6.2 38.1L6.4 39.4L6.7 40.8L7.1 42L7.6 43.2L8.2 44.4L8.9 45.5L9.8 46.5L10.7 47.3L11.6 48L12.7 48.6L13.8 49L15 49.3L16.2 49.4L17.4 49.2L18.6 49L19.7 48.5L20.9 47.9L22 47.1L23 46.3L24 45.3L25 44.2L25.9 43L26.7 41.8L27.5 40.5L28.2 39.2L28.9 37.8L29.5 36.5L30.1 35.1L30.6 33.7L31.1 32.3L31.5 30.9L31.9 29.6L32.3 28.2L32.6 26.9L32.9 25.6L33.1 24.4L33.2 23.3L33.2 22.3L33.2 21.4L33.1 20.7L32.9 20.1L32.6 19.7L32.2 19.5L31.8 19.5L31.3 19.7L30.8 20.1L30.3 20.6L29.8 21.4L29.2 22.3L28.8 23.3L28.3 24.4L27.8 25.6L27.3 26.9L26.9 28.1L26.4 29.5L25.9 30.8L25.4 32.1L24.9 33.5L24.3 34.8L23.6 36L22.9 37.2L22.2 38.3L21.4 39.3L20.5 40.1L19.6 40.9L18.6 41.4L17.6 41.7L16.6 41.9L15.7 41.8L14.8 41.6L13.9 41.1L13.1 40.5L12.4 39.7L11.8 38.7L11.4 37.7L11 36.5L10.8 35.3L10.7 34L10.7 32.7L10.9 31.4L11.1 30L11.4 28.7L11.9 27.4L12.4 26.1L13.1 24.8L13.8 23.6L14.6 22.5L15.5 21.4L16.5 20.4L17.6 19.5L18.7 18.7L19.9 18L21.1 17.4L22.4 16.8L23.7 16.4L25 16L26.4 15.8L27.8 15.6L29.1 15.4L30.5 15.3L31.9 15.3L33.3 15.3L34.7 15.3L36.1 15.4L37.5 15.6L38.8 15.8L40.2 16.2L41.5 16.6L42.8 17.1L44 17.7L45.2 18.5L46.3 19.3L47.3 20.3L48.3 21.3L49.1 22.4L49.9 23.6L50.6 24.8L51.1 26.1L51.6 27.4L51.9 28.8L52.1 30.2L52.2 31.5L52.2 32.9L52 34.3L51.8 35.6L51.4 37L51 38.3L50.4 39.6L49.7 40.9L48.9 42.1L48 43.3L47 44.5L46 45.5L44.9 46.5L43.8 47.5L42.6 48.4L41.5 49.2L40.4 50L39.4 50.8L38.5 51.4L37.7 52.1L37.1 52.6L36.7 53.2L36.5 53.6L36.5 54L36.7 54.4L37.1 54.6L37.7 54.8L38.5 54.9L39.5 54.8L40.5 54.7L41.6 54.4L42.9 54.1L44.1 53.6L45.3 53.1L46.6 52.4L47.8 51.7L49 50.8L50.1 49.9L51.2 48.9L52.2 47.8L53.2 46.7L54 45.5L54.8 44.2L55.5 42.9L56.1 41.6L56.6 40.3L57.1 38.9L57.4 37.5L57.7 36.2L57.9 34.8L58 33.4L58 32L57.9 30.6L57.8 29.2L57.6 27.8L57.3 26.4L56.9 25L56.4 23.7L55.9 22.4L55.2 21.1L54.5 19.8L53.7 18.6L52.9 17.4L51.9 16.3L50.8 15.2L49.7 14.2L48.6 13.4L47.3 12.6L46.1 11.9L44.8 11.2L43.4 10.7L42.1 10.3L40.7 9.9L39.3 9.6L37.9 9.4L36.5 9.2L35.1 9.2Z"/><g transform="translate(35.5 33) rotate(-4) scale(.62) translate(-32 -32)"><path d="M29.5 12.2L29 12.4L28.6 12.7L28.1 13.1L27.6 13.6L27.1 14.1L26.6 14.8L26.1 15.4L25.6 16.1L25.1 16.9L24.7 17.6L24.2 18.4L23.8 19.2L23.3 20L22.9 20.8L22.5 21.6L22 22.4L21.6 23.2L21.2 24L20.7 24.8L20.3 25.6L19.9 26.4L19.5 27.2L19.1 28L18.6 28.8L18.2 29.6L17.8 30.4L17.4 31.2L17 32.1L16.6 32.9L16.2 33.7L15.8 34.5L15.4 35.3L15 36.1L14.6 37L14.2 37.8L13.8 38.6L13.4 39.4L13.1 40.2L12.7 41.1L12.3 41.9L12 42.7L11.6 43.5L11.3 44.3L11 45.1L10.8 45.9L10.5 46.7L10.4 47.4L10.3 48.1L10.3 48.8L10.3 49.4L10.5 49.9L10.7 50.4L10.9 50.7L11.3 50.9L11.6 50.9L12 50.9L12.4 50.7L12.9 50.4L13.3 50L13.7 49.5L14.1 48.9L14.5 48.2L14.9 47.5L15.3 46.8L15.7 46L16.1 45.3L16.6 44.5L17 43.7L17.4 42.9L17.9 42.1L18.4 41.4L18.9 40.6L19.4 39.9L19.9 39.2L20.5 38.5L21.1 37.9L21.8 37.4L22.5 36.8L23.1 36.4L23.9 36L24.6 35.6L25.3 35.4L26.1 35.3L26.8 35.2L27.4 35.3L28.1 35.4L28.7 35.7L29.3 36L29.8 36.5L30.2 37L30.6 37.7L30.9 38.4L31.2 39.1L31.5 39.9L31.7 40.8L31.9 41.6L32.1 42.5L32.3 43.4L32.5 44.3L32.7 45.2L33 46L33.3 46.8L33.7 47.6L34.1 48.4L34.5 49.1L35 49.8L35.6 50.4L36.2 50.9L36.9 51.4L37.6 51.8L38.3 52.2L39.1 52.4L39.8 52.6L40.6 52.7L41.5 52.7L42.3 52.6L43.1 52.5L43.9 52.2L44.7 52L45.5 51.6L46.2 51.2L47 50.8L47.7 50.3L48.4 49.8L49 49.2L49.6 48.7L50.2 48L50.8 47.4L51.3 46.7L51.8 46L52.2 45.3L52.6 44.5L52.9 43.8L53.1 43.1L53.3 42.4L53.4 41.8L53.4 41.2L53.4 40.7L53.3 40.2L53.1 39.9L52.8 39.7L52.5 39.6L52.2 39.6L51.8 39.8L51.4 40.1L51 40.5L50.6 40.9L50.2 41.5L49.7 42.1L49.2 42.7L48.7 43.4L48.2 44L47.6 44.6L47 45.2L46.3 45.8L45.7 46.3L45 46.7L44.3 47L43.5 47.3L42.8 47.5L42.1 47.6L41.4 47.6L40.7 47.4L40 47.2L39.5 46.9L38.9 46.4L38.4 45.9L38 45.3L37.7 44.6L37.4 43.8L37.1 43L36.9 42.2L36.8 41.3L36.6 40.4L36.5 39.5L36.3 38.6L36.2 37.7L36 36.8L35.8 36L35.5 35.1L35.2 34.3L34.9 33.6L34.5 32.9L34 32.2L33.5 31.6L32.9 31.1L32.3 30.6L31.6 30.1L31 29.7L30.3 29.3L29.7 28.9L29.1 28.4L28.6 28L28.1 27.5L27.8 27L27.5 26.4L27.3 25.8L27.2 25.1L27.3 24.4L27.4 23.7L27.5 23L27.8 22.2L28.1 21.4L28.4 20.7L28.7 19.9L29.1 19.1L29.5 18.3L29.9 17.5L30.2 16.8L30.5 16.1L30.7 15.4L30.9 14.7L31 14.1L31.1 13.5L31 13.1L30.9 12.7L30.6 12.4L30.3 12.2L29.9 12.2Z"/></g></g></svg></i><b>ONEILVERSE</b><span class="plus">+</span></a>
- <div class="links">
-  <a href="#home" class="on">Home</a>
-  <a href="#paket">Paket &amp; Tampilan</a>
-  <a href="#tutorial">Tutorial</a>
-  <a href="#kontak">Kontak</a>
- </div>
- <a class="btn" href="#kontak">Hubungi kami</a>
-</div></nav>
-
-<header id="home" class="hero">
- <div class="wrap">
-  <span class="badge"><span class="dot"></span>Oneilverse v1.1 — Kini mendukung Bahasa Indonesia, English &amp; Melayu</span>
-  <h1>Tahu untung tokomu, setiap hari.</h1>
-  <p class="lead">Kasir cepat, kontrol stok, dan laporan laba rugi otomatis dalam satu aplikasi. Dibuka dari HP atau laptop, dibuat khusus untuk UMKM.</p>
-  <div class="cta">
-   <a class="btn btn-wa" href="#kontak"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14.2c-.2.6-1.300 1.200-1.800 1.200-.5.100-1 .2-3.300-.7-2.800-1.100-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.300c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.9 2.100c.1.200.1.400 0 .5l-.4.600-.3.400c-.1.100-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.200 1 2.100 1.300 2.400 1.500.3.100.5.100.6-.1l.9-1.100c.2-.3.400-.2.600-.1l2 1c.3.100.5.200.5.300.1.200.1.800-.1 1.400z"/></svg>Hubungi Tim Daerah</a>
-   <a class="btn btn-ghost" href="#tutorial">Lihat Cara Pakai</a>
+<header class="top">
+  <div class="wrap">
+    <div class="bar">
+      <a class="brand" href="#beranda" data-go="beranda"><img src="img/logo.svg" alt="">Oneilverse</a>
+      <span class="status" id="status" title="Status aplikasi"><i class="dot" id="sdot"></i><span id="stext">Memeriksa layanan…</span></span>
+      <span class="sp"></span>
+      <button class="mode" id="mode" aria-label="Ganti mode terang / gelap"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+      <a class="cta" href="#kontak" data-go="kontak">Minta demo</a>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="Menu situs">
+      <button role="tab" data-tab="beranda">Beranda</button>
+      <button role="tab" data-tab="fitur">Fitur</button>
+      <button role="tab" data-tab="paket">Paket</button>
+      <button role="tab" data-tab="tampilan">Tampilan</button>
+      <button role="tab" data-tab="coba">Coba Kasir</button>
+      <button role="tab" data-tab="keamanan">Keamanan</button>
+      <button role="tab" data-tab="versi">Versi</button>
+      <button role="tab" data-tab="panduan">Panduan</button>
+      <button role="tab" data-tab="faq">Tanya Jawab</button>
+      <button role="tab" data-tab="kontak">Kontak</button>
+    </nav>
   </div>
-  <div class="stage">
-   <div class="laptop">
-    <div class="lid"><img src="img/dash_d.jpg" alt="Tampilan Dashboard Toko Onies: omzet, pengeluaran, laba rugi, dan pajak" width="2000" height="1250" fetchpriority="high"></div>
-    <div class="base"></div>
-    <div class="fade"></div>
-   </div>
-  </div>
- </div>
 </header>
 
-<div class="statement"><div class="wrap"><p>Banyak pemilik usaha sibuk sepanjang hari, tapi di akhir bulan <b>tidak tahu pasti untung atau rugi.</b> Oneilverse membuat angkanya jelas, tanpa perlu paham akuntansi.</p></div></div>
+<main class="wrap">
 
-<!-- PAKET & TAMPILAN -->
-<section id="paket"><div class="wrap">
- <div class="head">
-  <h2>Paket Basic, Plus &amp; Pro — Tampilan Terang &amp; Gelap.</h2>
-  <p>Pilih paket sesuai skala toko Anda. Semua paket hadir dengan tampilan One UI yang bersih dalam Mode Terang maupun Mode Gelap Pekat.</p>
- </div>
+<!-- ================= BERANDA ================= -->
+<section role="tabpanel" id="beranda">
+  <div class="hero">
+    <div>
+      <span class="pill" id="verpill">Oneilverse · versi terbaru</span>
+      <h1 style="margin-top:14px">Tahu untung tokomu, setiap hari.</h1>
+      <p class="lead">Kasir, stok, piutang, dan laporan laba rugi dalam satu aplikasi. Dibuka dari HP atau laptop lewat browser, tanpa instal, dibuat untuk UMKM.</p>
+      <div class="row">
+        <button class="btn" data-go="coba">Coba kasirnya sekarang</button>
+        <button class="btn ghost" data-go="paket">Lihat paket</button>
+      </div>
+      <div class="facts">
+        <div><b>3 peran</b><span>Kasir, Manager, Owner dengan PIN sendiri</span></div>
+        <div><b>3 bahasa</b><span>Indonesia, English, Melayu</span></div>
+        <div><b>0 instal</b><span>Langsung jalan di browser</span></div>
+      </div>
+    </div>
+    <div class="stack">
+      <div class="shot"><img src="img/app/kasir-terang.jpg" data-light="img/app/kasir-terang.jpg" data-dark="img/app/kasir-gelap.jpg" class="themed" alt="Tampilan Kasir Oneilverse" width="1366" height="639"></div>
+      <div class="cardmini" data-card="pro"></div>
+    </div>
+  </div>
 
- <div class="bar-ctrl">
-  <div class="tabs" role="tablist" aria-label="Pilih Paket">
-   <button class="tab-btn" type="button" data-tier="basic">Basic</button>
-   <button class="tab-btn" type="button" data-tier="plus">Plus</button>
-   <button class="tab-btn on" type="button" data-tier="pro">Pro</button>
+  <div class="why">
+    <div class="head"><h2>Angka toko jelas, tanpa perlu paham akuntansi.</h2>
+    <p class="lead">Banyak pemilik usaha sibuk seharian tapi di akhir bulan tidak tahu pasti untung atau rugi. Oneilverse mencatat setiap transaksi dan menyusunnya jadi laporan yang langsung bisa dibaca.</p></div>
+    <div class="grid g3">
+      <div class="panel"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M7 9h10M7 13h6"/></svg></div><h3>Kasir cepat</h3><p>Scan barcode, simpan ke antrean, terima tunai, QRIS, transfer, split, atau hutang. Kembalian dihitung otomatis.</p></div>
+      <div class="panel"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19V5M4 19h16M8 15l4-4 3 3 5-6"/></svg></div><h3>Laporan otomatis</h3><p>Mutasi kas, buku besar, laba rugi, neraca, dan laporan bulanan tersusun sendiri dari transaksi harian.</p></div>
+      <div class="panel"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Data aman</h3><p>Setiap peran punya pintu sendiri. Oneil Shield menjaga PIN, transaksi sah, dan data toko di server.</p></div>
+    </div>
   </div>
-  <div class="tabs" role="tablist" aria-label="Pilih Mode Tampilan">
-   <button class="tab-btn on" type="button" data-theme="light">☀️ Mode Terang</button>
-   <button class="tab-btn" type="button" data-theme="dark">🌙 Mode Gelap</button>
-  </div>
- </div>
+</section>
 
- <div class="tier-cards">
-  <div class="tier-card" data-card="basic">
-   <h3>Basic <span class="tier-badge b">Pemula</span></h3>
-   <p>Cocok untuk toko rintisan yang butuh kasir cepat dan pencatatan harian yang rapi.</p>
-   <ul>
-    <li>Kasir, Antrean Draft &amp; Cetak Struk</li>
-    <li>Mutasi Kas Sah &amp; Buku Besar</li>
-    <li>Closing Kasir Harian &amp; Riwayat</li>
-    <li>Keamanan Oneil Shield</li>
-   </ul>
-  </div>
-  <div class="tier-card" data-card="plus">
-   <h3>Plus <span class="tier-badge p">Berkembang</span></h3>
-   <p>Untuk toko dengan stok barang, banyak karyawan, dan laporan keuangan lengkap.</p>
-   <ul>
-    <li>Semua fitur Basic</li>
-    <li>Stok, Barcode &amp; Closing Mingguan</li>
-    <li>Laba Rugi, Neraca AI &amp; Pajak</li>
-    <li>Impor Akun (COA) &amp; Excel/CSV</li>
-   </ul>
-  </div>
-  <div class="tier-card on" data-card="pro">
-   <h3>Pro <span class="tier-badge r">Lengkap</span></h3>
-   <p>Solusi penuh untuk multi-usaha, cabang, analisa cerdas, dan multi-bahasa.</p>
-   <ul>
-    <li>Semua fitur Plus</li>
-    <li>Banyak Usaha &amp; Admin per Usaha</li>
-    <li>Analisa Keuangan, Grafik &amp; Laporan WA</li>
-    <li>Multi-Bahasa (ID / EN / Melayu)</li>
-   </ul>
-  </div>
- </div>
+<!-- ================= FITUR ================= -->
+<section role="tabpanel" id="fitur">
+  <div class="head"><h2>Semua yang dibutuhkan toko, dalam satu aplikasi.</h2>
+  <p class="lead">Fitur dikelompokkan menurut pekerjaan sehari-hari. Ketersediaan per paket ada di tab Paket.</p></div>
+  <div class="grid g3" id="featGroups"></div>
+</section>
 
- <div class="preview-box">
-  <div class="preview-cap">
-   <span id="pv-title"><b>Paket Pro · Mode Terang</b> — Tampilan 100% sesuai aplikasi Toko Onies</span>
-   <span class="mono" style="font-size:.8rem">Oneilverse v1.1</span>
-  </div>
-  <div class="shot" id="pv-shot">
-   <img id="pv-img" src="img/dash_d.jpg" alt="Pratinjau Tampilan Aplikasi Oneilverse">
-  </div>
- </div>
-</div></section>
+<!-- ================= PAKET ================= -->
+<section role="tabpanel" id="paket">
+  <div class="head"><h2>Basic, Plus, dan Pro.</h2>
+  <p class="lead">Mulai dari Basic, naik kapan saja. Plus dan Pro bisa dicoba gratis 24 jam langsung dari aplikasi, sekali untuk tiap paket.</p></div>
+  <div class="grid g3" id="cards"></div>
+  <p class="note" id="priceNote">Harga Plus dan Pro diambil langsung dari pengaturan aplikasi. Harga Basic disesuaikan dengan skala toko, hubungi tim daerah.</p>
 
-<!-- MOBILE SHOWCASE -->
-<section style="padding-top:20px"><div class="wrap split rev">
- <div class="phones">
-  <div class="phone"><img src="img/dash_p.jpg" alt="Dashboard Toko Onies di HP" loading="lazy"></div>
-  <div class="phone"><img src="img/lr_p.jpg" alt="Laporan laba rugi di HP" loading="lazy"></div>
- </div>
- <div class="txt">
-  <h2>Toko Anda ada di saku.</h2>
-  <p>Sedang di luar kota, di rumah, atau liburan: buka HP dan lihat omzet hari ini, stok yang menipis, serta arus kas tunai, QRIS, maupun transfer bank.</p>
-  <ul>
-   <li>Tanpa instal dari Play Store, langsung jalan dari browser</li>
-   <li>Tampilan otomatis menyesuaikan layar HP, tablet, atau laptop</li>
-   <li>Target omzet harian dan bulanan dengan progres langsung</li>
-  </ul>
- </div>
-</div></section>
+  <div class="grid g2" style="margin-top:34px;align-items:start">
+    <div class="panel">
+      <h3>Paket mana yang cocok?</h3>
+      <p class="muted" style="margin:0 0 6px">Jawab empat pertanyaan, kami sarankan paketnya.</p>
+      <div class="q"><span>Menjual barang dengan stok?</span><button class="sw" role="switch" aria-checked="false" data-q="stok" aria-label="Menjual barang dengan stok"></button></div>
+      <div class="q"><span>Butuh laporan pajak, neraca, atau anggaran?</span><button class="sw" role="switch" aria-checked="false" data-q="lap" aria-label="Butuh laporan lengkap"></button></div>
+      <div class="q"><span>Lebih dari satu usaha atau cabang?</span><button class="sw" role="switch" aria-checked="false" data-q="multi" aria-label="Lebih dari satu usaha"></button></div>
+      <div class="q"><span>Banyak admin kasir dengan PIN masing-masing?</span><button class="sw" role="switch" aria-checked="false" data-q="admin" aria-label="Banyak admin kasir"></button></div>
+      <div class="rec" id="rec"></div>
+    </div>
+    <div>
+      <div class="tblwrap"><table class="cmp" id="cmp"><thead><tr><th>Fitur</th><th class="c">Basic</th><th class="c">Plus</th><th class="c">Pro</th></tr></thead><tbody></tbody></table></div>
+      <p class="note" id="cmpNote">Memuat isi paket terbaru…</p>
+    </div>
+  </div>
+</section>
 
-<!-- TUTORIAL MARKETING -->
-<section id="tutorial" style="background:var(--bg2);border-block:1px solid var(--line)"><div class="wrap">
- <div class="head">
-  <span class="tag">Tutorial Praktis · Demo Toko Onies</span>
-  <h2>Dari buka toko sampai tutup buku, semudah 5 langkah.</h2>
-  <p>Dirancang agar karyawan baru bisa langsung pakai dalam 5 menit, tanpa harus paham akuntansi rumit.</p>
- </div>
+<!-- ================= TAMPILAN ================= -->
+<section role="tabpanel" id="tampilan">
+  <div class="head"><h2>Tampilan yang tenang, di mode apa pun.</h2>
+  <p class="lead">Setiap halaman tersedia dalam mode terang (perak) dan mode gelap (hitam). Toko paket Pro mendapat tema hitam-emas. Semua tampilan menyesuaikan HP, tablet, dan laptop.</p></div>
 
- <div class="tut-grid">
-  <div class="tut-card">
-   <span class="tut-step">Langkah 01 · Akses &amp; Keamanan</span>
-   <h3>Masuk Sesuai Peran, Data Tetap Terjaga</h3>
-   <p>Kasir, Manager, dan Owner punya pintu masuk dan PIN masing-masing. Kasir hanya mencatat transaksi — angka laba &amp; modal aman hanya untuk Owner.</p>
-   <div class="shot"><img src="img/dash_d.jpg" alt="Tampilan Dashboard Owner Toko Onies" loading="lazy"></div>
+  <div class="panel">
+    <div class="row" style="justify-content:space-between">
+      <div class="seg" role="group" aria-label="Pilih halaman">
+        <button aria-pressed="true" data-v="kasir">Kasir</button>
+        <button aria-pressed="false" data-v="manager">Manager</button>
+        <button aria-pressed="false" data-v="owner">Owner</button>
+      </div>
+      <div class="seg" role="group" aria-label="Pilih mode">
+        <button aria-pressed="true" data-m="terang">Terang</button>
+        <button aria-pressed="false" data-m="gelap">Gelap</button>
+      </div>
+    </div>
+    <div class="view">
+      <div class="shot"><img id="vimg" src="img/app/kasir-terang.jpg" alt="" width="1366" height="639"></div>
+      <ul class="fn" id="vfn"></ul>
+    </div>
   </div>
-  <div class="tut-card">
-   <span class="tut-step">Langkah 02 · Kasir Kilat</span>
-   <h3>Scan Barcode, Simpan Draft, &amp; Kirim Struk</h3>
-   <p>Ketik atau scan barcode produk lewat alat maupun kamera HP/laptop. Terima pembayaran Tunai, QRIS, atau Transfer, lalu cetak struk atau kirim langsung ke WhatsApp pelanggan.</p>
-   <div class="shot"><img src="img/dash_d.jpg" alt="Tampilan Kasir Toko Onies" loading="lazy"></div>
-  </div>
-  <div class="tut-card">
-   <span class="tut-step">Langkah 03 · Kontrol Harian</span>
-   <h3>Closing Kasir Jujur &amp; Stok Terpantau</h3>
-   <p>Di akhir shift, tinggal cocokkan uang laci dengan catatan sistem. Stok otomatis berkurang saat barang terjual dan muncul peringatan sebelum barang habis.</p>
-   <div class="shot"><img src="img/lr_d.jpg" alt="Tampilan Manager & Kontrol Stok Toko Onies" loading="lazy"></div>
-  </div>
-  <div class="tut-card">
-   <span class="tut-step">Langkah 04 &amp; 05 · Laporan &amp; Bahasa</span>
-   <h3>Laba Rugi, Neraca AI, &amp; Multi-Bahasa</h3>
-   <p>Laporan Laba Rugi dan Neraca AI tersusun otomatis, siap ekspor ke PDF/Excel atau kirim ke WhatsApp. Mendukung Bahasa Indonesia, English, dan Melayu serta Mode Terang/Gelap.</p>
-   <div class="shot"><img src="img/lr_d.jpg" alt="Laporan Laba Rugi Oneilverse" loading="lazy"></div>
-  </div>
- </div>
-</div></section>
 
-<!-- PERAN & COCOK UNTUK -->
-<section><div class="wrap">
- <div class="head"><h2>Setiap orang punya pintunya sendiri.</h2><p>Karyawan fokus melayani pembeli. Angka laba dan pengaturan sensitif hanya terbuka untuk yang berhak.</p></div>
- <div class="roles">
-  <div class="role"><h3>Kasir</h3><p>Mencatat penjualan, menerima pembayaran tunai/QRIS/transfer, dan menutup kasir di akhir shift tanpa bisa mengintip laba bersih toko.</p></div>
-  <div class="role"><h3>Manager</h3><p>Memantau transaksi, absensi, dan stok harian, memeriksa riwayat koreksi, serta menjaga operasional toko tetap rapi.</p></div>
-  <div class="role"><h3>Owner</h3><p>Melihat semuanya: laba rugi, neraca AI, pajak, analisa keuangan, target omzet, pengaturan admin, hingga kunci PIN tim.</p></div>
- </div>
- <div class="who">
-  <span>Warung makan</span><span>Kafe &amp; kedai kopi</span><span>Toko kelontong</span><span>Toko pakaian</span><span>Laundry</span><span>Salon &amp; barbershop</span><span>Bengkel</span><span>Apotek</span><span>Bakery &amp; katering</span><span>Toko online</span><span>Jasa &amp; studio</span><span>Multi-cabang</span>
- </div>
-</div></section>
-
-<!-- KONTAK PER DAERAH -->
-<section id="kontak" style="background:var(--bg2);border-top:1px solid var(--line)"><div class="wrap">
- <div class="head">
-  <span class="tag">Layanan &amp; Konsultasi Daerah</span>
-  <h2>Hubungi Tim Oneilverse di Daerah Anda.</h2>
-  <p>Konsultasi gratis tanpa komitmen. Pilih kontak perwakilan daerah terdekat untuk demo langsung atau pembuatan toko baru.</p>
- </div>
-
- <div class="ct-grid">
-  <div class="ct-card">
-   <span class="ct-city">Medan</span>
-   <div class="ct-name">Ony Sumaryono</div>
-   <div class="ct-meta">Area: Kota Medan &amp; sekitarnya<br>No. HP / WA: <span class="mono" style="color:var(--tx)">0852-6093-5595</span></div>
-   <a class="btn btn-wa" href="https://wa.me/6285260935595?text=Halo%20Pak%20Ony%20(Oneilverse%20Medan)%2C%20saya%20ingin%20tahu%20lebih%20lanjut%20tentang%20aplikasi%20Oneilverse." target="_blank" rel="noopener">Chat WhatsApp</a>
+  <div style="margin-top:34px" class="grid g2">
+    <div class="panel">
+      <h3>Dock: semua menu dalam satu baris</h3>
+      <p class="muted" style="margin:0 0 14px">Bilah di bawah layar berisi tombol yang paling sering dipakai. Tekan logo di tengah untuk membuka menu lainnya.</p>
+      <div class="dock"><img src="img/app/dock.jpg" alt="Dock tertutup" width="471" height="83"><img src="img/app/dock-buka.jpg" alt="Dock terbuka" width="734" height="84"></div>
+      <ul class="fn" style="margin-top:16px">
+        <li><b>Tema</b><span>Ganti mode terang atau gelap.</span></li>
+        <li><b>Chat</b><span>Obrolan antar toko dan chat langsung dengan tim bantuan.</span></li>
+        <li><b>Logo tengah</b><span>Membuka Mutasi, Buku Besar, Pengaturan, dan Keluar.</span></li>
+        <li><b>Absen &amp; Stok</b><span>Absensi karyawan dan cek stok langsung dari Kasir.</span></li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>Warna tema</h3>
+      <p class="muted" style="margin:0 0 14px">Mengikuti kartu member di aplikasi. Bayangan lembut mengikuti kursor.</p>
+      <div class="swatch">
+        <div style="background:linear-gradient(155deg,#dadae0,#ebebef 40%,#f8f8fa 72%,#e2e2e7);color:#111">Terang · perak</div>
+        <div style="background:linear-gradient(155deg,#1f1f24,#101013 40%,#08080a 72%,#141418);color:#eee">Gelap · hitam</div>
+        <div style="background:linear-gradient(155deg,#2b2111,#130f08 40%,#080604 72%,#1d160a);color:#e5c373;box-shadow:inset 0 0 0 1px rgba(205,167,92,.4)">Pro · hitam-emas</div>
+        <div style="background:linear-gradient(155deg,#ecdfc3,#f6efdf 40%,#fcf9f2 72%,#f0e5cd);color:#6b4f17;box-shadow:inset 0 0 0 1px rgba(160,120,40,.3)">Pro · sampanye</div>
+      </div>
+    </div>
   </div>
-  <div class="ct-card">
-   <span class="ct-city">Sibolga &amp; Tapteng</span>
-   <div class="ct-name">Adi Sutrisno</div>
-   <div class="ct-meta">Area: Sibolga &amp; Tapanuli Tengah<br>No. HP / WA: <span class="mono" style="color:var(--tx)">0822-6470-3451</span></div>
-   <a class="btn btn-wa" href="https://wa.me/6282264703451?text=Halo%20Pak%20Adi%20(Oneilverse%20Sibolga%20%26%20Tapteng)%2C%20saya%20ingin%20tahu%20lebih%20lanjut%20tentang%20aplikasi%20Oneilverse." target="_blank" rel="noopener">Chat WhatsApp</a>
-  </div>
-  <div class="ct-card">
-   <span class="ct-city">Pekanbaru, Riau</span>
-   <div class="ct-name">Yuli Amri</div>
-   <div class="ct-meta">Area: Pekanbaru &amp; Riau<br>No. HP / WA: <span class="mono" style="color:var(--tx)">0812-6709-047</span></div>
-   <a class="btn btn-wa" href="https://wa.me/628126709047?text=Halo%20Pak%20Yuli%20Amri%20(Oneilverse%20Pekanbaru%20Riau)%2C%20saya%20ingin%20tahu%20lebih%20lanjut%20tentang%20aplikasi%20Oneilverse." target="_blank" rel="noopener">Chat WhatsApp</a>
-  </div>
- </div>
-</div></section>
 
-<footer><div class="wrap"><span>© 2026 Oneilverse · Toko Onies Demo</span><span>Medan · Sibolga &amp; Tapteng · Pekanbaru Riau</span></div></footer>
+  <h2 style="margin-top:44px">Jendela kerja</h2>
+  <p class="lead">Setiap fitur terbuka di jendela sendiri dengan latar yang diredupkan, jadi fokus pada satu pekerjaan.</p>
+  <div class="gal" id="gal"></div>
+</section>
+
+<!-- ================= COBA KASIR ================= -->
+<section role="tabpanel" id="coba">
+  <div class="head"><h2>Coba kasirnya di sini.</h2>
+  <p class="lead">Simulasi sederhana alur Kasir Oneilverse: pilih barang, atur jumlah, terima uang, lalu sahkan struk. Tidak ada data yang disimpan.</p></div>
+  <div class="pos">
+    <div class="panel">
+      <h3>Produk</h3>
+      <div class="prods" id="prods"></div>
+    </div>
+    <div class="panel">
+      <h3>Antrean draft</h3>
+      <div id="draft"><p class="muted">Belum ada barang. Tekan produk di kiri.</p></div>
+      <div class="tot"><span>Total</span><span id="total">Rp 0</span></div>
+      <label class="f" for="cash">Uang diterima</label>
+      <input class="inp" id="cash" inputmode="numeric" placeholder="Kosongkan bila uang pas">
+      <div class="chips" id="chips"></div>
+      <div class="tot" style="font-size:15px;margin-top:4px"><span>Kembalian</span><span id="change">Rp 0</span></div>
+      <div class="row"><button class="btn" id="sah">Sahkan &amp; cetak struk</button><button class="btn ghost" id="reset">Kosongkan</button></div>
+      <div id="rcpt" style="margin-top:14px"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= KEAMANAN ================= -->
+<section role="tabpanel" id="keamanan">
+  <div class="head"><h2>Oneil Shield <span id="shv">3.0</span></h2>
+  <p class="lead">Pengamanan yang bekerja di server, bukan hanya di perangkat. Orang yang mengutak-atik browser pun tidak bisa melewatinya.</p></div>
+  <div class="grid g3" id="shield"></div>
+</section>
+
+<!-- ================= VERSI ================= -->
+<section role="tabpanel" id="versi">
+  <div class="head"><h2>Versi aplikasi</h2>
+  <p class="lead">Aplikasi memperbarui dirinya sendiri saat dibuka. Berikut catatan setiap rilis, diambil langsung dari aplikasi.</p></div>
+  <div id="rels"></div>
+</section>
+
+<!-- ================= PANDUAN ================= -->
+<section role="tabpanel" id="panduan">
+  <div class="head"><h2>Setiap orang punya pintunya sendiri.</h2>
+  <p class="lead">Kasir fokus melayani pembeli. Angka laba dan pengaturan penting hanya terbuka untuk yang berhak.</p></div>
+  <div class="grid g3">
+    <div class="panel"><h3>Kasir</h3><ol class="steps">
+      <li><span><b>Masuk</b> dengan link toko dan PIN Kasir.</span></li>
+      <li><span><b>Scan barcode</b> atau pilih akun, isi jumlah, lalu simpan ke antrean.</span></li>
+      <li><span>Tekan <b>Konfirmasi &amp; Cetak Struk Sah</b>, pilih cara bayar, dan isi uang diterima.</span></li>
+      <li><span>Akhir shift, tekan <b>Closing</b> dan cocokkan uang di laci.</span></li>
+    </ol></div>
+    <div class="panel"><h3>Manager</h3><ol class="steps">
+      <li><span>Pantau <b>ringkasan hari ini</b>, metode bayar, dan stok menipis.</span></li>
+      <li><span>Atur <b>akun (COA)</b>, stok, absensi, dan gaji.</span></li>
+      <li><span>Koreksi transaksi bila perlu. Semua koreksi tercatat di <b>riwayat audit</b>.</span></li>
+      <li><span>Kirim <b>laporan bulanan</b> ke WhatsApp Owner.</span></li>
+    </ol></div>
+    <div class="panel"><h3>Owner</h3><ol class="steps">
+      <li><span>Lihat <b>laba rugi</b>, neraca, pajak, dan target omzet.</span></li>
+      <li><span>Atur <b>PIN staf</b> dan nama peran.</span></li>
+      <li><span>Periksa <b>riwayat audit</b> dan riwayat login di Oneil Shield.</span></li>
+      <li><span>Naikkan paket ke Plus atau Pro kapan saja dari tombol <b>Upgrade</b>.</span></li>
+    </ol></div>
+  </div>
+  <div class="panel" style="margin-top:22px">
+    <h3>Cocok untuk</h3>
+    <p class="muted" style="margin:6px 0 0">Warung makan · kafe dan kedai kopi · toko kelontong · toko pakaian · laundry · salon dan barbershop · bengkel · apotek · bakery dan katering · toko online · jasa dan studio · usaha dengan banyak cabang.</p>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section role="tabpanel" id="faq">
+  <div class="head"><h2>Tanya jawab</h2></div>
+  <div class="panel" id="faqs"></div>
+</section>
+
+<!-- ================= KONTAK ================= -->
+<section role="tabpanel" id="kontak">
+  <div class="head"><h2>Hubungi tim di daerah Anda.</h2>
+  <p class="lead">Konsultasi gratis, tanpa komitmen. Isi formulir di bawah, pesan akan terkirim lewat WhatsApp ke perwakilan yang Anda pilih.</p></div>
+  <div class="grid g3" id="reps"></div>
+  <div class="panel" style="margin-top:22px;max-width:640px">
+    <h3>Minta demo</h3>
+    <label class="f" for="fnm">Nama</label><input class="inp" id="fnm" autocomplete="name">
+    <label class="f" for="fus">Nama dan jenis usaha</label><input class="inp" id="fus" placeholder="Misal: Kedai Kopi Senja, kafe">
+    <label class="f" for="frep">Kirim ke</label><select class="inp" id="frep"></select>
+    <div style="margin-top:16px"><button class="btn" id="fsend">Kirim lewat WhatsApp</button></div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap row" style="justify-content:space-between"><span>© 2026 Oneilverse</span><span>Medan · Sibolga &amp; Tapteng · Pekanbaru</span></div></footer>
 
 <script>
-(function(){
-  var tier = 'pro', theme = 'light';
-  var imgs = {
-    basic: 'img/dash_d.jpg',
-    plus:  'img/lr_d.jpg',
-    pro:   'img/dash_d.jpg'
-  };
-  var labels = { basic: 'Paket Basic', plus: 'Paket Plus', pro: 'Paket Pro' };
-  function updatePreview(){
-    var img = document.getElementById('pv-img');
-    var shot = document.getElementById('pv-shot');
-    var title = document.getElementById('pv-title');
-    if (img) img.src = imgs[tier] || 'img/dash_d.jpg';
-    if (shot) shot.classList.toggle('dark-sim', theme === 'dark');
-    if (title) title.innerHTML = '<b>' + labels[tier] + ' · Mode ' + (theme === 'dark' ? 'Gelap' : 'Terang') + '</b> — Tampilan 100% sesuai aplikasi Toko Onies';
-    document.querySelectorAll('[data-tier]').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-tier') === tier); });
-    document.querySelectorAll('[data-card]').forEach(function(c){ c.classList.toggle('on', c.getAttribute('data-card') === tier); });
-    document.querySelectorAll('[data-theme]').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-theme') === theme); });
+(function () {
+  'use strict';
+  var APP = 'https://app.oneilverse.com';
+  var FS = 'https://firestore.googleapis.com/v1/projects/finance-ai-master-byneilverse/databases/(default)/documents/app_meta/';
+  var KEY = '?key=AIzaSyBSxD060e_MyiS62hHsWkqlAhBqDuFYQMI';
+  function $(s, r) { return (r || document).querySelector(s); }
+  function $$(s, r) { return [].slice.call((r || document).querySelectorAll(s)); }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function rp(n) { return 'Rp ' + Math.round(Number(n) || 0).toLocaleString('id-ID'); }
+  function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+  function fsDoc(name) { return fetch(FS + name + KEY, { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) { try { return JSON.parse(d.fields.json.stringValue); } catch (e) { return null; } }).catch(function () { return null; }); }
+
+  /* ---------- mode terang / gelap ---------- */
+  var root = document.documentElement;
+  function setMode(m) { root.setAttribute('data-mode', m); store('ov_mode', m); $$('img.themed').forEach(function (i) { i.src = m === 'gelap' ? i.getAttribute('data-dark') : i.getAttribute('data-light'); }); }
+  setMode(store('ov_mode') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'gelap' : 'terang'));
+  $('#mode').onclick = function () { setMode(root.getAttribute('data-mode') === 'gelap' ? 'terang' : 'gelap'); };
+
+  /* ---------- tab ---------- */
+  var TABS = $$('[role="tab"]').map(function (b) { return b.getAttribute('data-tab'); });
+  function go(t, push) {
+    if (TABS.indexOf(t) < 0) t = 'beranda';
+    $$('[role="tab"]').forEach(function (b) { b.setAttribute('aria-selected', b.getAttribute('data-tab') === t ? 'true' : 'false'); });
+    $$('section[role="tabpanel"]').forEach(function (s) { s.classList.toggle('on', s.id === t); });
+    var b = $('[role="tab"][data-tab="' + t + '"]'); if (b && b.scrollIntoView) b.scrollIntoView({ block: 'nearest', inline: 'center' });
+    if (push !== false && location.hash !== '#' + t) history.pushState(null, '', '#' + t);
+    window.scrollTo(0, 0);
   }
-  document.querySelectorAll('[data-tier]').forEach(function(b){
-    b.addEventListener('click', function(){ tier = b.getAttribute('data-tier'); updatePreview(); });
+  document.addEventListener('click', function (e) {
+    var t = e.target.closest('[data-tab],[data-go]'); if (!t) return;
+    e.preventDefault(); go(t.getAttribute('data-tab') || t.getAttribute('data-go'));
   });
-  document.querySelectorAll('[data-theme]').forEach(function(b){
-    b.addEventListener('click', function(){ theme = b.getAttribute('data-theme'); updatePreview(); });
+  window.addEventListener('popstate', function () { go(location.hash.slice(1), false); });
+  go(location.hash.slice(1), false);
+
+  /* ---------- logo untuk kartu ---------- */
+  var LOGO = '';
+  var logoReady = fetch('img/logo-mark.svg').then(function (r) { return r.text(); }).then(function (t) { LOGO = t; }).catch(function () {});
+
+  /* ---------- status & versi ---------- */
+  fetch(APP + '/version.json?c=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (j) {
+    $('#sdot').classList.add('on'); $('#stext').textContent = 'Aplikasi aktif · ' + (j.versi || '');
+    $('#verpill').textContent = 'Oneilverse ' + (j.versi || '') + ' · versi terbaru';
+  }).catch(function () { $('#stext').textContent = 'Status belum terbaca'; });
+
+  var NOTES_FALLBACK = [["v1.3", "24 Nov 2026", ["[Baru] Tombol Upgrade di Kasir, Manager, dan Owner: dua kartu Plus dan Pro, tekan untuk melihat flyer isi paket", "[Baru] Coba gratis 24 jam, sekali untuk tiap paket per toko. Kasir boleh mencoba, hanya Manager dan Owner yang bisa berlangganan", "[Baru] Berlangganan 1 bulan atau 1 tahun lewat QRIS, kirim bukti ke WhatsApp, lalu paket aktif sementara 24 jam sampai dikonfirmasi", "[Perubahan] Setelah masa coba atau paket habis, data tetap terlihat dan hanya fitur tambahan yang terkunci", "[Perubahan] Fitur Kirim Struk lewat WhatsApp dihapus dari aplikasi, termasuk tombolnya di struk dan Riwayat Hari Ini", "[Baru] Tampilan bergaya kartu member: latar, kartu, dan header berwarna silver (mode terang) atau hitam (mode gelap), dan hitam-emas / sampanye saat paket Pro aktif, dengan cahaya lembut mengikuti kursor", "[Perubahan] Form Input Transaksi Kasir ditata ulang: dua kolom seimbang, kolom lebih jelas, muat satu layar tanpa gulir", "[Perubahan] Metode bayar dan akun tujuan (bank / Petty Cash) kini dipilih di jendela Konfirmasi Pembayaran saja", "[Perbaikan] Semua jendela pop-up kini padat dan latar di belakangnya diredupkan supaya mudah dibaca", "[Perbaikan] Kartu Total Masuk, Total Keluar, dan Saldo Kas Sah tidak lagi terpotong; header lebih pipih dan nama toko tidak lagi mepet dengan alamat", "[Perubahan] Tombol Upgrade di header tampil lebih modern dan bersih, mengikuti tema terang / gelap", "[Perbaikan] Jendela Oneil Shield kini mengikuti tema: putih di mode terang, gelap di mode gelap", "[Perbaikan] Kolom jumlah di Kasir diperlebar sehingga muat hingga 100.000", "[Perubahan] Kotak pajak di Kasir hanya muncul bila fitur Pajak PPN 12% aktif untuk toko", "[Perbaikan] Hitungan pajak harga sudah termasuk PPN 12% dibetulkan (12/112 dari total, bukan 12% dari total)"]], ["v1.2", "23 Nov 2026", ["[Baru] Metode bayar Hutang di Kasir dengan pilihan TOP 14, 30, atau 45 hari. Nama pelanggan wajib diisi, jatuh tempo otomatis dihitung dan tampil di struk", "[Baru] Penjualan hutang otomatis masuk ke Piutang & Utang (tersedia di semua paket), dan tidak dihitung sebagai uang tunai sampai dilunasi", "[Perbaikan] Pelunasan piutang dari Kasir tidak mencatat omzet dua kali", "[Baru] Kasir v1.2: Modal Konfirmasi Pembayaran dengan hitung Kembalian otomatis, tombol pecahan cepat, Diskon Struk, dan nama Pelanggan", "[Baru] Dukungan Split Payment (bayar campuran dua metode), Parkir Antrean (Hold), dan tab Riwayat Hari Ini untuk cetak ulang struk atau kirim WhatsApp", "[Baru] Chip cepat Sering Dipakai (1-Klik), kontrol jumlah (+/-) langsung di draft, peringatan stok real-time, suara bip scanner, shortcut keyboard (F2–F8), serta Mode Panduan (ⓘ) di menu bantuan"]], ["v1.1", "22 Nov 2026", ["[Baru] Tampilan One UI lebih bersih dengan mode terang dan mode gelap pekat di Kasir, Manager, Owner, dan Partner", "[Baru] Dock bawah bergaya pulau yang simetris serta sistem Paket Basic, Plus, dan Pro dengan lencana khusus", "[Baru] Fitur Banyak Bahasa lengkap (Indonesia, English, dan Bahasa Melayu) termasuk terjemahan otomatis daftar akun COA serta posisi dock yang konsisten", "[Baru] Fitur Impor Akun (COA) dan Impor Riwayat Transaksi dari file Excel / CSV (khusus Plus ke atas)", "[Perbaikan] Penyeragaman seluruh jendela pop-up, formulir Kasir penuh, serta tombol Perbarui Aplikasi hanya muncul saat ada pembaruan", "[Keamanan] Perlindungan halaman dari clickjacking serta penerapan hak akses paket dan peran secara konsisten"]], ["v1.0", "18 Nov 2026", ["[Baru] Sistem kasir dan pembukuan UMKM lengkap: Mutasi, Buku Besar, Laba Rugi, Neraca otomatis, Stok, Piutang & Utang, dan Payroll", "[Baru] Dukungan banyak usaha/cabang, Petty Cash, QRIS, cetak struk & kirim WhatsApp, serta pengelompokan akun standar PSAK", "[Keamanan] Perlindungan keamanan Oneil Shield (pembatasan salah PIN di server, log perangkat baru, dan skor keamanan toko)"]]];
+  function relHtml(list) {
+    return list.map(function (r, i) {
+      return '<div class="rel' + (i === 0 ? ' now' : '') + '"><h3>' + esc(/^v/i.test(r[0]) ? r[0] : 'v' + r[0]) + ' <small>' + esc(r[1]) + (i === 0 ? ' · versi terbaru' : '') + '</small></h3><ul>' +
+        r[2].map(function (n) {
+          var m = /^\[(\w+)\]\s*(.*)$/.exec(n), tg = m ? m[1].toLowerCase() : '', tx = m ? m[2] : n;
+          tx = tx.replace(/Neraca AI/g, 'Neraca otomatis');
+          return '<li>' + (tg ? '<span class="tag ' + esc(tg) + '">' + esc(m[1]) + '</span>' : '') + esc(tx) + '</li>';
+        }).join('') + '</ul></div>';
+    }).join('');
+  }
+  $('#rels').innerHTML = relHtml(NOTES_FALLBACK);
+  fetch(APP + '/js/theme.js?c=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.text(); }).then(function (s) {
+    var a = s.indexOf('var RELEASE_NOTES = ['); if (a < 0) return;
+    var b = s.indexOf('\n  ];', a); if (b < 0) return;
+    var txt = s.slice(a + 'var RELEASE_NOTES = '.length, b + 4);
+    var list = JSON.parse(txt.replace(/'((?:[^'\\]|\\.)*)'/g, function (_, x) { return JSON.stringify(x.replace(/\\'/g, "'")); }).replace(/,(\s*[\]}])/g, '$1'));
+    if (Array.isArray(list) && list.length) $('#rels').innerHTML = relHtml(list);
+  }).catch(function () {});
+
+  /* ---------- fitur ---------- */
+  var GROUPS = [
+    ['Kasir & transaksi', [
+      ['input', 'Kasir, antrean draft & cetak struk', 'Simpan pesanan ke antrean, parkir antrean, lalu sahkan satu struk untuk semuanya.'],
+      ['jual_produk', 'Jual barang dari stok', 'Harga mengikuti daftar produk, stok berkurang otomatis.'],
+      ['barcode', 'Scan barcode', 'Pakai alat scan atau kamera HP / laptop.'],
+      ['satuan_ganda', 'Satuan ganda', 'Misal 1 bal = 100 lembar, di stok dan kasir.'],
+      ['diskon', 'Diskon & promo', 'Promo otomatis dan diskon manual dengan batas.'],
+      ['piutang', 'Piutang & utang', 'Bayar hutang dengan tempo 14, 30, atau 45 hari, DP, dan cicilan.'],
+      ['bukti', 'Foto bukti struk', 'Lampirkan foto nota dari kamera atau berkas.'],
+      ['tax', 'Pajak PPN 12%', 'Hitung pajak langsung saat mencatat pengeluaran.'],
+      ['offline_penuh', 'Mode offline', 'Transaksi tetap tersimpan saat internet putus, lalu terkirim otomatis.']]],
+    ['Kas & laporan', [
+      ['saldo', 'Saldo kas & closing', 'Total masuk, keluar, dan saldo kas; closing tiap shift dengan riwayatnya.'],
+      ['mutasi', 'Mutasi kas', 'Daftar transaksi sah, bisa dicetak.'],
+      ['ledger', 'Buku besar', 'Rincian per akun dengan saldo berjalan.'],
+      ['laba_rugi', 'Laba rugi', 'Pendapatan, HPP, beban, dan laba bersih per periode.'],
+      ['neraca_ai', 'Neraca otomatis', 'Neraca tersusun dari transaksi, dengan kunci periode.'],
+      ['arus_kas', 'Arus kas', 'Uang masuk dan keluar per bulan, minggu, dan cara bayar.'],
+      ['anggaran', 'Anggaran bulanan', 'Batas pengeluaran per akun dan target pemasukan.'],
+      ['rekon', 'Rekonsiliasi kas', 'Cocokkan uang di laci dengan catatan.'],
+      ['pajak_bulanan', 'Laporan pajak bulanan', 'Perkiraan PPh Final dan PPN per bulan.'],
+      ['laporan_bulanan', 'Laporan bulanan', 'Ringkasan tiap bulan, siap dikirim lewat WhatsApp.'],
+      ['grafik', 'Grafik keuangan', 'Penjualan, laba, kas, dan beban dalam grafik.'],
+      ['export_csv', 'Unduh PDF & CSV', 'Simpan laporan untuk arsip atau akuntan.']]],
+    ['Stok barang', [
+      ['stok', 'Daftar stok', 'Lihat semua barang dan jumlahnya.'],
+      ['stok_input', 'Stok masuk', 'Tambah jenis barang dan stok masuk.'],
+      ['stok_closing', 'Closing stok mingguan', 'Isi sisa stok fisik dan bandingkan dengan catatan.'],
+      ['stok_habis', 'Perkiraan stok habis', 'Daftar barang yang perlu dibeli lagi.'],
+      ['stok_scan', 'Scan stok masuk', 'Admin scan barcode untuk menambah stok, tercatat siapa dan kapan.']]],
+    ['Tim & usaha', [
+      ['pin', 'PIN per peran', 'Kasir, Manager, dan Owner masuk dengan PIN masing-masing.'],
+      ['kasir_baru', 'Buka kasir baru', 'Tambah terminal kasir untuk perangkat lain.'],
+      ['absensi', 'Absensi', 'Catat jam masuk dan pulang, rekap bulanan.'],
+      ['gaji', 'Laporan gaji', 'Hitung gaji dan catat otomatis sebagai pengeluaran.'],
+      ['admin_usaha', 'Banyak admin kasir', 'Tiap admin punya PIN sendiri, diatur Owner.'],
+      ['banyak_usaha', 'Banyak usaha', 'Pisahkan pembukuan beberapa usaha dalam satu toko.'],
+      ['audit', 'Riwayat audit', 'Setiap koreksi dan perubahan akun tercatat.']]],
+    ['Lainnya', [
+      ['dashboard', 'Kartu ringkasan', 'Ringkasan hari ini, metode bayar, target omzet, stok menipis, dan margin per produk.'],
+      ['analisa', 'Analisa keuangan', 'Rasio dan tren usaha dalam bahasa sederhana.'],
+      ['import_tx', 'Impor dari Excel / CSV', 'Pindahkan data dari aplikasi lama.'],
+      ['backup', 'Backup & ekspor data', 'Unduh data toko ke Excel.'],
+      ['bahasa', 'Tiga bahasa', 'Indonesia, English, dan Bahasa Melayu.'],
+      ['rates', 'Kurs & emas', 'Kurs 7 mata uang dan harga emas, diperbarui dua kali sehari.'],
+      ['chat', 'Chat & bantuan', 'Obrolan antar toko dan chat langsung dengan tim bantuan.']]]
+  ];
+  $('#featGroups').innerHTML = GROUPS.map(function (g) {
+    return '<div class="panel"><h3>' + esc(g[0]) + '</h3><ul class="fn" style="margin-top:12px">' + g[1].map(function (f) { return '<li><b>' + esc(f[1]) + '</b><span>' + esc(f[2]) + '</span></li>'; }).join('') + '</ul></div>';
+  }).join('');
+
+  /* ---------- paket ---------- */
+  var PRICE = { plus: { bulan: 149000, tahun: 1490000 }, pro: { bulan: 249000, tahun: 2490000 } };
+  /* cadangan bila isi paket tidak terbaca dari server */
+  var FB_PRO = ['banyak_usaha', 'admin_usaha', 'analisa', 'bahasa', 'grafik'];
+  var FB_PLUS = ['import_tx', 'barcode', 'stok_scan', 'dashboard', 'audit', 'export_csv', 'arus_kas', 'anggaran', 'rekon', 'neraca_ai', 'pajak_bulanan', 'backup', 'laporan_bulanan', 'gaji', 'ledger', 'stok', 'stok_input', 'stok_closing', 'stok_habis', 'jual_produk', 'satuan_ganda'];
+  var CAT = null;
+  function tierOfKey(k) {
+    if (CAT) {
+      var on = function (t) { var p = CAT[t] && CAT[t][k]; return !!p && Object.keys(p).some(function (r) { return p[r] === true; }); };
+      if (on('basic')) return 'basic'; if (on('plus')) return 'plus'; if (on('pro')) return 'pro'; return '';
+    }
+    return FB_PRO.indexOf(k) >= 0 ? 'pro' : FB_PLUS.indexOf(k) >= 0 ? 'plus' : 'basic';
+  }
+  var RANK = { basic: 1, plus: 2, pro: 3 };
+  function inTier(k, t) { var x = tierOfKey(k); return !!x && RANK[x] <= RANK[t]; }
+  var TICK = function (c) { return '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="' + c + '" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>'; };
+  function allFeats() { var a = []; GROUPS.forEach(function (g) { g[1].forEach(function (f) { a.push(f); }); }); return a; }
+  function cardHtml(t, mini) {
+    var feats = allFeats().filter(function (f) { return tierOfKey(f[0]) === t; }).slice(0, 9);
+    var col = t === 'pro' ? '#e5c373' : '#fff';
+    return '<div class="mcard ' + t + '" data-tilt><span class="foil"></span><span class="wm">' + LOGO + '</span>' +
+      '<span class="lg"><i style="color:' + col + '">' + LOGO + '</i>ONEILVERSE' + (t === 'plus' ? '<i class="pl">+</i>' : '<i class="pp">PRO</i>') + '</span>' +
+      '<span class="nm"><span>' + (t === 'plus' ? 'Plus' : 'Pro') + '</span><span class="vip">' + (t === 'plus' ? '+' : 'PRO') + '</span></span>' +
+      '<span class="tl">' + (t === 'pro' ? 'Akses penuh, tanpa batas' : 'Naik kelas untuk usaha Anda') + '</span>' +
+      (mini ? '' : '<ul>' + (t === 'pro' ? '<li>' + TICK(col) + '<span><b>Semua isi Plus</b></span></li>' : '') + feats.map(function (f) { return '<li>' + TICK(col) + '<span>' + esc(f[1]) + '</span></li>'; }).join('') + '</ul>') +
+      '<span class="ft"><span class="pr"><b>' + rp(PRICE[t].bulan) + '</b>per bulan · ' + rp(PRICE[t].tahun) + '/thn</span><span class="tg">Coba 24 jam</span></span></div>';
+  }
+  function basicHtml() {
+    var feats = allFeats().filter(function (f) { return tierOfKey(f[0]) === 'basic'; }).slice(0, 10);
+    return '<div class="basiccard"><span class="lg"><i>' + LOGO + '</i>ONEILVERSE</span><span class="nm">Basic</span><span class="muted" style="margin-top:6px">Kasir dan pembukuan harian yang rapi</span>' +
+      '<ul>' + feats.map(function (f) { return '<li>' + TICK('currentColor') + '<span>' + esc(f[1]) + '</span></li>'; }).join('') + '</ul>' +
+      '<span class="ft"><b>Sesuai skala toko</b>Hubungi tim daerah untuk harga</span></div>';
+  }
+  function renderPaket() {
+    $('#cards').innerHTML = basicHtml() + cardHtml('plus') + cardHtml('pro');
+    $$('[data-card]').forEach(function (el) { el.innerHTML = cardHtml(el.getAttribute('data-card'), true); });
+    var tb = '';
+    GROUPS.forEach(function (g) {
+      tb += '<tr class="grp"><td colspan="4">' + esc(g[0]) + '</td></tr>';
+      g[1].forEach(function (f) {
+        tb += '<tr><td>' + esc(f[1]) + '</td>' + ['basic', 'plus', 'pro'].map(function (t) { return inTier(f[0], t) ? '<td class="c y" aria-label="ada">✓</td>' : '<td class="c n" aria-label="tidak ada">–</td>'; }).join('') + '</tr>';
+      });
+    });
+    $('#cmp tbody').innerHTML = tb;
+    $('#cmpNote').textContent = CAT ? 'Isi paket diambil langsung dari pengaturan aplikasi, jadi selalu sama dengan yang Anda dapat.' : 'Isi paket perkiraan. Daftar pasti mengikuti pengaturan aplikasi saat Anda berlangganan.';
+    tilt(); rec();
+  }
+  logoReady.then(renderPaket);
+  Promise.all([fsDoc('paket_catalog'), fsDoc('upgrade_cfg'), logoReady]).then(function (r) {
+    if (r[0] && typeof r[0] === 'object' && (r[0].basic || r[0].plus || r[0].pro)) CAT = r[0];
+    var h = r[1] && r[1].harga;
+    if (h) ['plus', 'pro'].forEach(function (t) { if (h[t]) { if (+h[t].bulan) PRICE[t].bulan = +h[t].bulan; if (+h[t].tahun) PRICE[t].tahun = +h[t].tahun; } });
+    renderPaket();
   });
+
+  /* kartu ikut kursor (miring halus + kilau) */
+  function tilt() {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    $$('[data-tilt]').forEach(function (c) {
+      if (c._t) return; c._t = 1;
+      c.addEventListener('pointermove', function (e) { var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height; c.style.setProperty('--mx', (x * 100) + '%'); c.style.setProperty('--my', (y * 100) + '%'); c.style.setProperty('--ry', ((x - .5) * 8) + 'deg'); c.style.setProperty('--rx', ((.5 - y) * 8) + 'deg'); });
+      c.addEventListener('pointerleave', function () { c.style.setProperty('--rx', '0deg'); c.style.setProperty('--ry', '0deg'); });
+    });
+  }
+
+  /* kalkulator paket */
+  var ANS = {};
+  $$('.sw').forEach(function (s) { s.onclick = function () { var v = s.getAttribute('aria-checked') !== 'true'; s.setAttribute('aria-checked', v ? 'true' : 'false'); ANS[s.getAttribute('data-q')] = v; rec(); }; });
+  function rec() {
+    var t = (ANS.multi || ANS.admin) ? 'pro' : (ANS.stok || ANS.lap) ? 'plus' : 'basic';
+    var why = t === 'pro' ? 'Banyak usaha atau banyak admin kasir ada di paket Pro.' : t === 'plus' ? 'Stok barang dan laporan lengkap ada di paket Plus.' : 'Kasir dan pembukuan harian sudah cukup dengan Basic.';
+    $('#rec').innerHTML = '<span class="muted">Saran kami</span><br><b>' + (t === 'pro' ? 'Pro' : t === 'plus' ? 'Plus' : 'Basic') + '</b> ' +
+      (t === 'basic' ? '<span class="muted">· harga sesuai skala toko</span>' : '<span class="muted">· ' + rp(PRICE[t].bulan) + ' per bulan, bisa dicoba gratis 24 jam</span>') +
+      '<p class="muted" style="margin:6px 0 0">' + why + '</p>';
+  }
+
+  /* ---------- tampilan ---------- */
+  var VIEWS = {
+    kasir: { img: { terang: 'kasir-terang', gelap: 'kasir-gelap' }, fn: [
+      ['Header', 'Nama toko, jam, cuaca, kurs, status sinkron, dan tombol Upgrade.'],
+      ['Saldo shift', 'Kas masuk, kas keluar, dan saldo sejak closing terakhir. Tombol Closing dan Riwayat Closing di kanan.'],
+      ['Form transaksi', 'Scan barcode atau pilih akun, isi jumlah dan nominal, lalu simpan ke antrean draft.'],
+      ['Antrean draft', 'Pesanan bisa diubah, ditambah, atau diparkir sebelum disahkan. Tab Riwayat Hari Ini untuk cetak ulang struk.'],
+      ['Total kas', 'Total masuk, total keluar, dan saldo kas sah yang terus diperbarui.']] },
+    manager: { img: { terang: 'manager-terang', gelap: 'manager-gelap' }, fn: [
+      ['Kartu utama', 'Total pemasukan, pengeluaran, laba rugi bulan ini, dan perkiraan biaya layanan.'],
+      ['Ringkasan hari ini', 'Omzet, laba kotor, jumlah nota, barang terlaris, dan jam ramai.'],
+      ['Metode bayar', 'Tunai, QRIS, dan transfer hari ini, untuk dicocokkan dengan laci.'],
+      ['Target & stok', 'Progres target omzet dan daftar stok yang menipis.'],
+      ['Aksi cepat', 'Buka kasir baru, kelola akun, stok, gaji, absensi, dan laporan bulanan.']] },
+    owner: { img: { terang: 'owner-terang', gelap: 'owner-terang' }, fn: [
+      ['Gambaran penuh', 'Semua kartu Manager ditambah pengaturan target omzet.'],
+      ['Laba & margin', 'Omzet, laba, dan margin per produk atau akun pendapatan.'],
+      ['Kendali tim', 'Kelola password staf, ubah nama peran, dan buka kasir baru.'],
+      ['Laporan', 'Buku besar dan unduh PDF untuk arsip atau akuntan.']] }
+  };
+  var V = 'kasir', M = 'terang';
+  function renderView() {
+    var v = VIEWS[V], src = 'img/app/' + v.img[M] + '.jpg';
+    $('#vimg').src = src; $('#vimg').alt = 'Tampilan ' + V + ' mode ' + M;
+    $('#vfn').innerHTML = v.fn.map(function (f) { return '<li><b>' + esc(f[0]) + '</b><span>' + esc(f[1]) + '</span></li>'; }).join('') + (V === 'owner' ? '<li><b>Mode gelap</b><span>Tersedia juga, sama seperti Manager.</span></li>' : '');
+    $$('[data-v]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-v') === V ? 'true' : 'false'); });
+    $$('[data-m]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-m') === M ? 'true' : 'false'); });
+  }
+  $$('[data-v]').forEach(function (b) { b.onclick = function () { V = b.getAttribute('data-v'); renderView(); }; });
+  $$('[data-m]').forEach(function (b) { b.onclick = function () { M = b.getAttribute('data-m'); renderView(); }; });
+  renderView();
+  var GAL = [
+    ['bayar-terang', 'Konfirmasi pembayaran', 'Pilih tunai, QRIS, transfer, petty cash, split, atau hutang. Tombol pecahan uang dan kembalian otomatis.'],
+    ['bayar-gelap', 'Konfirmasi pembayaran · gelap', 'Jendela yang sama di mode gelap.'],
+    ['mutasi', 'Mutasi kas sah', 'Semua struk dan transaksi final dengan saldo berjalan, bisa diurutkan dan dicetak.'],
+    ['buku-besar', 'Buku besar', 'Cari akun, pilih periode, lihat masuk, keluar, dan saldonya.'],
+    ['laba-rugi', 'Laporan laba rugi', 'Pendapatan, HPP, laba kotor, dan beban untuk hari ini, minggu, bulan, tahun, atau periode sendiri.'],
+    ['laporan-bulanan', 'Laporan bulanan', 'Ringkasan satu bulan yang siap dikirim ke WhatsApp Owner.'],
+    ['riwayat-closing', 'Riwayat closing', 'Catatan penyerahan uang kas tiap shift beserta petugasnya.'],
+    ['kurs-emas', 'Kurs & emas', 'Harga emas dan kurs tujuh mata uang sebagai acuan.'],
+    ['audit', 'Riwayat audit', 'Jejak koreksi nota, void, dan perubahan akun oleh Manager.']
+  ];
+  $('#gal').innerHTML = GAL.map(function (g) { return '<figure><div class="shot"><img loading="lazy" src="img/app/' + g[0] + '.jpg" alt="' + esc(g[1]) + '" width="1366" height="638"></div><figcaption><b>' + esc(g[1]) + '</b>' + esc(g[2]) + '</figcaption></figure>'; }).join('');
+
+  /* ---------- coba kasir ---------- */
+  var PRODS = [['Kopi susu', 18000], ['Teh manis', 8000], ['Roti bakar', 15000], ['Nasi goreng', 22000], ['Air mineral', 5000], ['Kentang goreng', 16000]];
+  var cart = [];
+  $('#prods').innerHTML = PRODS.map(function (p, i) { return '<button class="prod" data-p="' + i + '"><b>' + esc(p[0]) + '</b><span>' + rp(p[1]) + '</span></button>'; }).join('');
+  function total() { return cart.reduce(function (s, c) { return s + c.q * PRODS[c.i][1]; }, 0); }
+  function num(s) { return parseInt(String(s || '').replace(/\D/g, ''), 10) || 0; }
+  function renderCart() {
+    $('#draft').innerHTML = cart.length ? cart.map(function (c, k) { return '<div class="line"><span>' + esc(PRODS[c.i][0]) + '</span><span class="qty"><button data-d="' + k + '" aria-label="Kurangi">−</button>' + c.q + '<button data-u="' + k + '" aria-label="Tambah">+</button></span><b>' + rp(c.q * PRODS[c.i][1]) + '</b></div>'; }).join('') : '<p class="muted">Belum ada barang. Tekan produk di kiri.</p>';
+    var t = total(); $('#total').textContent = rp(t);
+    var cash = num($('#cash').value); $('#change').textContent = cash ? (cash >= t ? rp(cash - t) : 'Uang kurang ' + rp(t - cash)) : 'Rp 0 (uang pas)';
+    $('#chips').innerHTML = t ? [t, Math.ceil(t / 50000) * 50000, Math.ceil(t / 100000) * 100000].filter(function (v, i, a) { return a.indexOf(v) === i; }).map(function (v) { return '<button data-c="' + v + '">' + (v === t ? 'Uang pas' : v.toLocaleString('id-ID')) + '</button>'; }).join('') : '';
+  }
+  document.addEventListener('click', function (e) {
+    var p = e.target.closest('[data-p]'); if (p) { var i = +p.getAttribute('data-p'), f = cart.filter(function (c) { return c.i === i; })[0]; if (f) f.q++; else cart.push({ i: i, q: 1 }); $('#rcpt').innerHTML = ''; return renderCart(); }
+    var u = e.target.closest('[data-u]'); if (u) { cart[+u.getAttribute('data-u')].q++; return renderCart(); }
+    var d = e.target.closest('[data-d]'); if (d) { var k = +d.getAttribute('data-d'); if (--cart[k].q <= 0) cart.splice(k, 1); return renderCart(); }
+    var c = e.target.closest('[data-c]'); if (c) { $('#cash').value = (+c.getAttribute('data-c')).toLocaleString('id-ID'); return renderCart(); }
+  });
+  $('#cash').addEventListener('input', function () { var n = num(this.value); this.value = n ? n.toLocaleString('id-ID') : ''; renderCart(); });
+  $('#reset').onclick = function () { cart = []; $('#cash').value = ''; $('#rcpt').innerHTML = ''; renderCart(); };
+  $('#sah').onclick = function () {
+    var t = total(); if (!t) { $('#rcpt').innerHTML = '<p class="muted">Tambahkan barang dulu.</p>'; return; }
+    var cash = num($('#cash').value) || t; if (cash < t) { $('#rcpt').innerHTML = '<p class="muted" style="color:var(--bad)">Uang diterima kurang dari total.</p>'; return; }
+    var w = 32, pad = function (a, b) { a = String(a); b = String(b); return a + ' '.repeat(Math.max(1, w - a.length - b.length)) + b; };
+    var now = new Date(), lines = ['      TOKO CONTOH ONEILVERSE', '     ' + now.toLocaleString('id-ID'), '-'.repeat(w)];
+    cart.forEach(function (c) { lines.push(PRODS[c.i][0]); lines.push(pad('  ' + c.q + ' x ' + PRODS[c.i][1].toLocaleString('id-ID'), (c.q * PRODS[c.i][1]).toLocaleString('id-ID'))); });
+    lines.push('-'.repeat(w)); lines.push(pad('TOTAL', t.toLocaleString('id-ID'))); lines.push(pad('Tunai', cash.toLocaleString('id-ID'))); lines.push(pad('Kembali', (cash - t).toLocaleString('id-ID'))); lines.push('-'.repeat(w)); lines.push('   Terima kasih · simulasi saja');
+    $('#rcpt').innerHTML = '<div class="receipt">' + esc(lines.join('\n')) + '</div>';
+  };
+  renderCart();
+
+  /* ---------- keamanan ---------- */
+  var SHIELD = [
+    ['Kunci PIN salah', 'Salah PIN 3 kali mengunci akun 5 menit, 5 kali 10 menit, 10 kali diblokir. Dicek di server.'],
+    ['Kunci PIN tidak bisa diakali', 'Hitungan salah PIN hanya bisa naik. Reset hanya setelah login sah.'],
+    ['Transaksi sah terkunci', 'Struk yang sudah sah tidak bisa diubah atau dihapus Kasir. Hanya Manager atau Owner.'],
+    ['Paket dijaga server', 'Masa coba dan pengajuan paket diperiksa server, tidak bisa dibuat atau diperpanjang sendiri.'],
+    ['Data toko terpisah', 'Transaksi, riwayat login, laporan keamanan, dan chat setiap toko tersimpan di ruangnya sendiri.'],
+    ['Log login & perangkat baru', 'Setiap login dicatat beserta perangkatnya. Login dari perangkat baru langsung ditandai.'],
+    ['PIN terenkripsi', 'Sandi dan PIN dijaga sistem masuk Firebase, tidak disimpan sebagai teks biasa.'],
+    ['Koneksi terenkripsi', 'Semua data berpindah lewat HTTPS.'],
+    ['Kunci otomatis bila offline lama', 'Aplikasi mengunci diri bila lebih dari 7 hari tanpa kontak server.']
+  ];
+  $('#shield').innerHTML = SHIELD.map(function (s) { return '<div class="panel"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>' + esc(s[0]) + '</h3><p class="muted" style="margin:0">' + esc(s[1]) + '</p></div>'; }).join('');
+
+  /* ---------- faq ---------- */
+  var FAQ = [
+    ['Perlu instal aplikasi?', 'Tidak. Oneilverse dibuka dari browser di HP, tablet, atau laptop. Bisa juga ditambahkan ke layar utama HP agar terasa seperti aplikasi.'],
+    ['Bagaimana kalau internet putus?', 'Dengan fitur mode offline, transaksi tetap tersimpan di perangkat dan terkirim otomatis begitu internet kembali.'],
+    ['Apakah data toko saya aman?', 'Setiap toko punya ruang data sendiri. Akses dicek di server menurut peran, PIN dijaga dengan kunci salah PIN, dan transaksi sah tidak bisa dihapus Kasir. Lihat tab Keamanan.'],
+    ['Bagaimana cara bayar paket?', 'Dari tombol Upgrade di aplikasi: pilih 1 bulan atau 1 tahun, bayar lewat QRIS, kirim bukti ke WhatsApp. Paket langsung aktif sementara sampai dikonfirmasi.'],
+    ['Bisa pindah atau turun paket?', 'Bisa. Kalau masa paket habis, data tetap ada dan tetap terlihat. Hanya fitur tambahan yang terkunci sampai paket diperpanjang.'],
+    ['Bisa dicoba dulu?', 'Bisa. Plus dan Pro bisa dicoba gratis 24 jam dari tombol Upgrade, sekali untuk tiap paket. Anda juga bisa mencoba alur kasir di tab Coba Kasir.'],
+    ['Data dari aplikasi lama bisa dipindah?', 'Bisa, lewat impor akun dan riwayat transaksi dari file Excel atau CSV.'],
+    ['Berapa perangkat yang bisa dipakai?', 'Jumlah terminal kasir diatur per toko. Tambah terminal lewat Buka Kasir Baru atau hubungi tim daerah.']
+  ];
+  $('#faqs').innerHTML = FAQ.map(function (f) { return '<details><summary>' + esc(f[0]) + '</summary><p>' + esc(f[1]) + '</p></details>'; }).join('');
+
+  /* ---------- kontak ---------- */
+  var REPS = [['Medan', 'Ony Sumaryono', 'Kota Medan dan sekitarnya', '085260935595'], ['Sibolga & Tapteng', 'Adi Sutrisno', 'Sibolga dan Tapanuli Tengah', '082264703451'], ['Pekanbaru, Riau', 'Yuli Amri', 'Pekanbaru dan Riau', '08126709047']];
+  function wa(n) { return '62' + String(n).replace(/\D/g, '').replace(/^0/, ''); }
+  function fmt(n) { return String(n).replace(/(\d{4})(\d{4})(\d+)/, '$1-$2-$3'); }
+  $('#reps').innerHTML = REPS.map(function (r) { return '<div class="panel rep"><span class="pill">' + esc(r[0]) + '</span><h3 style="margin-top:12px">' + esc(r[1]) + '</h3><p class="muted">' + esc(r[2]) + ' · ' + fmt(r[3]) + '</p><a class="btn" href="https://wa.me/' + wa(r[3]) + '" target="_blank" rel="noopener">Chat WhatsApp</a></div>'; }).join('');
+  $('#frep').innerHTML = REPS.map(function (r, i) { return '<option value="' + i + '">' + esc(r[0] + ' · ' + r[1]) + '</option>'; }).join('');
+  $('#fsend').onclick = function () {
+    var r = REPS[+$('#frep').value], nm = $('#fnm').value.trim(), us = $('#fus').value.trim();
+    var msg = 'Halo ' + r[1] + ', saya ' + (nm || '-') + (us ? ' dari ' + us : '') + '. Saya ingin minta demo Oneilverse.';
+    window.open('https://wa.me/' + wa(r[3]) + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+  };
 })();
 </script>
 </body>
