@@ -121,7 +121,7 @@ html{overflow-x:clip}
 .ic svg{width:19px;height:19px}
 
 /* ---------- kartu member (sama dengan aplikasi) ---------- */
-.mcard{position:relative;overflow:hidden;border-radius:22px;aspect-ratio:5/8;padding:18px 18px 14px;color:#fff;display:flex;flex-direction:column;background:linear-gradient(155deg,#26262b 0%,#0a0a0c 38%,#000 70%,#16161a 100%);box-shadow:0 26px 50px -16px rgba(0,0,0,.6),inset 0 0 0 1px #3a3a41,inset 0 1px 0 rgba(255,255,255,.16);transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .25s ease-out;--mx:30%;--my:10%}
+.mcard{position:relative;overflow:hidden;border-radius:22px;min-height:100%;padding:18px 18px 14px;color:#fff;display:flex;flex-direction:column;background:linear-gradient(155deg,#26262b 0%,#0a0a0c 38%,#000 70%,#16161a 100%);box-shadow:0 26px 50px -16px rgba(0,0,0,.6),inset 0 0 0 1px #3a3a41,inset 0 1px 0 rgba(255,255,255,.16);transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .25s ease-out;--mx:30%;--my:10%}
 .mcard.pro{background:linear-gradient(155deg,#3a2c12 0%,#14100a 36%,#000 68%,#241b0b 100%);box-shadow:0 26px 50px -16px rgba(0,0,0,.6),0 0 0 1px #6f5320,0 0 0 3px #000,0 0 0 4.5px var(--gold2),0 0 28px rgba(229,195,115,.22),inset 0 1px 0 rgba(255,232,170,.45)}
 .mcard .foil{position:absolute;inset:0;pointer-events:none;background:radial-gradient(240px 180px at var(--mx) var(--my),rgba(255,255,255,.2),transparent 62%);mix-blend-mode:screen}
 .mcard.pro .foil{background:radial-gradient(260px 200px at var(--mx) var(--my),rgba(255,226,150,.36),transparent 62%)}
@@ -136,7 +136,7 @@ html{overflow-x:clip}
 .mcard .vip{font-family:var(--font);font-size:9px;font-weight:800;letter-spacing:.22em;padding:4px 8px;border-radius:5px;background:linear-gradient(135deg,#f6e0a0,#c49a45);color:#1a1405}
 .mcard.plus .vip{background:linear-gradient(135deg,#fff,#c9c9d0);color:#000;font-size:17px;letter-spacing:0;padding:2px 9px}
 .mcard .tl{font-size:11.5px;color:#9a9aa3;margin-top:6px;position:relative}.mcard.pro .tl{color:#c9ab6a}
-.mcard ul{list-style:none;margin:14px 0 0;padding:12px 0 0;border-top:1px solid rgba(255,255,255,.12);display:flex;flex-direction:column;gap:8px;position:relative;flex:1;min-height:0;overflow:hidden}
+.mcard ul{list-style:none;margin:14px 0 0;padding:12px 0 0;border-top:1px solid rgba(255,255,255,.12);display:flex;flex-direction:column;gap:8px;position:relative;flex:1;min-height:0;overflow:visible;--x:hidden}
 .mcard.pro ul{border-color:rgba(229,195,115,.32)}
 .mcard li{display:flex;gap:9px;align-items:flex-start;font-size:12.5px;line-height:1.3;font-weight:600;color:#ececef}
 .mcard li svg{flex:none;margin-top:1px}
@@ -146,13 +146,13 @@ html{overflow-x:clip}
 .mcard .pr{font-size:10.5px;color:#9a9aa3}
 .mcard .tg{font-size:10.5px;font-weight:700;padding:5px 10px;border-radius:999px;background:rgba(255,255,255,.1)}
 .mcard.pro .tg{background:rgba(229,195,115,.16);color:#f1d58a}
-.cardmini .mcard{aspect-ratio:5/7.2}
+.cardmini .mcard{aspect-ratio:5/7.2;min-height:0}
 .cardmini .mcard ul{display:none}
-.basiccard{border-radius:22px;padding:20px;background:var(--silver);border:1px solid var(--line);box-shadow:var(--shadow);display:flex;flex-direction:column;aspect-ratio:5/8}
+.basiccard{border-radius:22px;padding:20px;background:var(--silver);border:1px solid var(--line);box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:100%}
 .basiccard .nm{font-family:"Playfair Display",Georgia,serif;font-size:44px;font-weight:700;line-height:1;margin-top:18px}
 .basiccard .lg{font-size:9.5px;font-weight:700;letter-spacing:.3em;color:var(--ink3);display:flex;gap:7px;align-items:center}
 .basiccard .lg i{width:20px;height:20px;display:inline-block;color:var(--ink)}
-.basiccard ul{list-style:none;margin:14px 0 0;padding:12px 0 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:8px;flex:1;overflow:hidden}
+.basiccard ul{list-style:none;margin:14px 0 0;padding:12px 0 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:8px;flex:1;overflow:visible}
 .basiccard li{display:flex;gap:9px;font-size:12.5px;font-weight:600;color:var(--ink2)}
 .basiccard .ft{padding-top:10px;border-top:1px solid var(--line);font-size:12px;color:var(--ink3)}
 .basiccard .ft b{display:block;font-size:17px;color:var(--ink)}
@@ -565,7 +565,11 @@ footer{padding:30px 0 50px;border-top:1px solid var(--line);font-size:13px;color
       ['anggaran', 'Anggaran bulanan', 'Batas pengeluaran per akun dan target pemasukan.'],
       ['rekon', 'Rekonsiliasi kas', 'Cocokkan uang di laci dengan catatan.'],
       ['pajak_bulanan', 'Laporan pajak bulanan', 'Perkiraan PPh Final dan PPN per bulan.'],
+      ['penjelasan', 'Penjelasan laporan', 'Angka laporan dijelaskan dengan kalimat sederhana.'],
+      ['perubahan_modal', 'Perubahan modal', 'Modal awal sampai modal akhir per periode.'],
+      ['penyusutan', 'Penyusutan aset', 'Daftar aset tetap dan nilai bukunya.'],
       ['laporan_bulanan', 'Laporan bulanan', 'Ringkasan tiap bulan, siap dikirim lewat WhatsApp.'],
+      ['harian_wa', 'Laporan harian WhatsApp', 'Ringkasan satu hari, siap dikirim ke Owner.'],
       ['grafik', 'Grafik keuangan', 'Penjualan, laba, kas, dan beban dalam grafik.'],
       ['export_csv', 'Unduh PDF & CSV', 'Simpan laporan untuk arsip atau akuntan.']]],
     ['Stok barang', [
@@ -573,12 +577,14 @@ footer{padding:30px 0 50px;border-top:1px solid var(--line);font-size:13px;color
       ['stok_input', 'Stok masuk', 'Tambah jenis barang dan stok masuk.'],
       ['stok_closing', 'Closing stok mingguan', 'Isi sisa stok fisik dan bandingkan dengan catatan.'],
       ['stok_habis', 'Perkiraan stok habis', 'Daftar barang yang perlu dibeli lagi.'],
-      ['stok_scan', 'Scan stok masuk', 'Admin scan barcode untuk menambah stok, tercatat siapa dan kapan.']]],
+      ['stok_scan', 'Scan stok masuk', 'Admin scan barcode untuk menambah stok, tercatat siapa dan kapan.'],
+      ['stok_admin', 'Stok untuk Admin', 'Admin melihat stok usahanya sendiri langsung dari Kasir.']]],
     ['Tim & usaha', [
       ['pin', 'PIN per peran', 'Kasir, Manager, dan Owner masuk dengan PIN masing-masing.'],
       ['kasir_baru', 'Buka kasir baru', 'Tambah terminal kasir untuk perangkat lain.'],
       ['absensi', 'Absensi', 'Catat jam masuk dan pulang, rekap bulanan.'],
       ['gaji', 'Laporan gaji', 'Hitung gaji dan catat otomatis sebagai pengeluaran.'],
+      ['instruksi', 'Instruksi & pengawasan admin', 'Beri instruksi ke Admin dan pantau pekerjaannya.'],
       ['audit', 'Riwayat audit', 'Setiap koreksi dan perubahan akun tercatat.']]],
     ['Lainnya', [
       ['dashboard', 'Kartu ringkasan', 'Ringkasan hari ini, metode bayar, target omzet, stok menipis, dan margin per produk.'],
@@ -614,17 +620,17 @@ footer{padding:30px 0 50px;border-top:1px solid var(--line);font-size:13px;color
   var TICK = function (c) { return '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="' + c + '" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>'; };
   function allFeats() { var a = []; GROUPS.forEach(function (g) { g[1].forEach(function (f) { a.push(f); }); }); return a; }
   function cardHtml(t, mini) {
-    var feats = allFeats().filter(function (f) { return tierOfKey(f[0]) === t; }).slice(0, 9);
+    var feats = allFeats().filter(function (f) { return tierOfKey(f[0]) === t; });
     var col = t === 'pro' ? '#e5c373' : '#fff';
     return '<div class="mcard ' + t + '" data-tilt><span class="foil"></span><span class="wm">' + LOGO + '</span>' +
       '<span class="lg"><i style="color:' + col + '">' + LOGO + '</i>ONEILVERSE' + (t === 'plus' ? '<i class="pl">+</i>' : '<i class="pp">PRO</i>') + '</span>' +
       '<span class="nm"><span>' + (t === 'plus' ? 'Plus' : 'Pro') + '</span><span class="vip">' + (t === 'plus' ? '+' : 'PRO') + '</span></span>' +
       '<span class="tl">' + (t === 'pro' ? 'Akses penuh, tanpa batas' : 'Naik kelas untuk usaha Anda') + '</span>' +
-      (mini ? '' : '<ul>' + (t === 'pro' ? '<li>' + TICK(col) + '<span><b>Semua isi Plus</b></span></li>' : '') + feats.map(function (f) { return '<li>' + TICK(col) + '<span>' + esc(f[1]) + '</span></li>'; }).join('') + '</ul>') +
+      (mini ? '' : '<ul>' + '<li>' + TICK(col) + '<span><b>' + (t === 'pro' ? 'Semua isi Plus, ditambah:' : 'Semua isi Basic, ditambah:') + '</b></span></li>' + feats.map(function (f) { return '<li>' + TICK(col) + '<span>' + esc(f[1]) + '</span></li>'; }).join('') + '</ul>') +
       '<span class="ft"><span class="pr"><b>' + rp(PRICE[t].bulan) + '</b>per bulan · ' + rp(PRICE[t].tahun) + '/thn</span><span class="tg">Coba 24 jam</span></span></div>';
   }
   function basicHtml() {
-    var feats = allFeats().filter(function (f) { return tierOfKey(f[0]) === 'basic'; }).slice(0, 10);
+    var feats = allFeats().filter(function (f) { return tierOfKey(f[0]) === 'basic'; });
     return '<div class="basiccard"><span class="lg"><i>' + LOGO + '</i>ONEILVERSE</span><span class="nm">Basic</span><span class="muted" style="margin-top:6px">Kasir dan pembukuan harian yang rapi</span>' +
       '<ul>' + feats.map(function (f) { return '<li>' + TICK('currentColor') + '<span>' + esc(f[1]) + '</span></li>'; }).join('') + '</ul>' +
       '<span class="ft"><b>' + rp(PRICE.basic.bulan) + '</b>per bulan · ' + rp(PRICE.basic.tahun) + '/thn</span></div>';
