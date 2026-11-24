@@ -74,15 +74,43 @@ h3{font-size:17px;margin:0 0 6px;font-weight:700}
 .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .pill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:var(--card);border:1px solid var(--line);color:var(--ink2)}
 
+/* ---------- bingkai perangkat ---------- */
+.dev{position:relative;filter:drop-shadow(0 28px 34px rgba(10,10,20,.28))}
+.dev img{border-radius:3px;width:100%;aspect-ratio:1366/638;object-fit:cover;object-position:top}
+.dev.strip img{aspect-ratio:auto}
+.dev .scr{position:relative;background:#0b0b0d;box-shadow:0 0 0 1px #2c2c32,inset 0 0 0 1px #000}
+.dev.laptop .scr{border-radius:16px 16px 4px 4px;padding:2.4% 2.4% 2.6%}
+.dev.laptop .scr::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:13%;height:2.1%;min-height:6px;background:#0b0b0d;border-radius:0 0 7px 7px;z-index:1}
+.dev.laptop .base{position:relative;height:clamp(9px,1.3vw,16px);margin:0 -3.5%;background:linear-gradient(#ececf0,#c4c4cb 60%,#9c9ca4);border-radius:2px 2px 16px 16px/2px 2px 10px 10px}
+.dev.laptop .base::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:15%;height:40%;background:linear-gradient(#b7b7be,#d4d4da);border-radius:0 0 8px 8px}
+.dev.monitor .scr{border-radius:14px 14px 0 0;padding:1.6% 1.6% 1.2%}
+.dev.monitor .chin{height:clamp(14px,2.6vw,34px);background:linear-gradient(#ededf1,#cfcfd6);border-radius:0 0 14px 14px;display:grid;place-items:center}
+.dev.monitor .chin i{width:clamp(10px,1.4vw,16px);height:clamp(10px,1.4vw,16px);opacity:.35;color:#111}
+.dev.monitor .chin svg{width:100%;height:100%;display:block}
+.dev.monitor .neck{width:16%;height:clamp(22px,4.5vw,58px);margin:0 auto;background:linear-gradient(90deg,#bdbdc4,#ececf0 45%,#d8d8de 60%,#bdbdc4);clip-path:polygon(8% 0,92% 0,100% 100%,0 100%)}
+.dev.monitor .foot{width:30%;height:clamp(5px,.8vw,9px);margin:0 auto;border-radius:3px 3px 8px 8px;background:linear-gradient(#e4e4e9,#b3b3ba)}
+.dev.tablet .scr{border-radius:clamp(16px,2.4vw,28px);padding:3.2%;box-shadow:0 0 0 2px #2c2c32,inset 0 0 0 1px #000}
+.dev.tablet .scr::before{content:"";position:absolute;left:1.4%;top:50%;width:6px;height:6px;margin-top:-3px;border-radius:50%;background:#1d1d22;box-shadow:inset 0 0 0 1.5px #2c2c35}
+.dev.tablet img{border-radius:6px}
+.dev.strip .scr{border-radius:18px;padding:8px;display:grid;gap:8px}
+.dev.strip img{border-radius:12px}
+:root[data-mode="gelap"] .dev.laptop .base{background:linear-gradient(#4a4a52,#2b2b31 60%,#1c1c20)}
+:root[data-mode="gelap"] .dev.laptop .base::before{background:linear-gradient(#232328,#3a3a41)}
+:root[data-mode="gelap"] .dev.monitor .chin{background:linear-gradient(#3d3d44,#26262b)}
+:root[data-mode="gelap"] .dev.monitor .chin i{color:#fff}
+:root[data-mode="gelap"] .dev.monitor .neck{background:linear-gradient(90deg,#26262b,#4a4a52 45%,#3a3a41 60%,#26262b)}
+:root[data-mode="gelap"] .dev.monitor .foot{background:linear-gradient(#45454d,#24242a)}
+
 /* ---------- beranda ---------- */
 .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
 @media (max-width:900px){.hero{grid-template-columns:1fr}}
 @media (max-width:560px){#stext{display:none}.status{padding:8px}.brand{font-size:16px}.cta{padding:8px 13px;font-size:13px}.facts{grid-template-columns:1fr}}
 html{overflow-x:clip}
-.shot{border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(10,10,20,.55);background:#000}
+.shot{display:block}
 .stack{position:relative;padding:10px 0 40px}
-.stack .shot{transform:rotate(-1.2deg)}
-.stack .cardmini{position:absolute;right:0;bottom:-4px;width:min(46%,230px)}
+.stack{padding:10px 0 50px}
+.stack .cardmini{position:absolute;right:2%;bottom:-6px;width:min(32%,180px)}
+.cardmini .mcard{padding:12px 12px 10px;border-radius:16px}.cardmini .mcard .nm{font-size:30px;margin-top:10px}.cardmini .mcard .tl{font-size:10px}.cardmini .mcard .pr b{font-size:15px}.cardmini .mcard .tg{display:none}.cardmini .mcard .lg{font-size:8px;letter-spacing:.2em}
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
 .facts div{padding:14px;border-radius:16px;background:var(--card);border:1px solid var(--line)}
 .facts b{display:block;font-size:22px;letter-spacing:-.02em}
@@ -152,6 +180,7 @@ html{overflow-x:clip}
 .seg{display:inline-flex;padding:3px;border-radius:999px;background:var(--card);border:1px solid var(--line);gap:2px}
 .seg button{all:unset;cursor:pointer;padding:7px 14px;border-radius:999px;font-size:13px;font-weight:700;color:var(--ink2)}
 .seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.seg button[hidden]{display:none}
 .view{display:grid;grid-template-columns:1.5fr 1fr;gap:22px;align-items:start;margin-top:16px}
 @media (max-width:900px){.view{grid-template-columns:1fr}}
 .fn{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
@@ -160,7 +189,7 @@ html{overflow-x:clip}
 .fn span{font-size:13.5px;color:var(--ink2)}
 .gal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
 @media (max-width:700px){.gal{grid-template-columns:1fr}}
-.gal figure{margin:0}
+.gal figure{margin:0;display:flex;flex-direction:column;justify-content:flex-end}
 .gal figcaption{margin-top:10px;font-size:13.5px;color:var(--ink2)}
 .gal figcaption b{display:block;color:var(--ink);font-size:14.5px}
 .dock{display:grid;gap:12px}
@@ -258,7 +287,7 @@ footer{padding:30px 0 50px;border-top:1px solid var(--line);font-size:13px;color
       </div>
     </div>
     <div class="stack">
-      <div class="shot"><img src="img/app/kasir-terang.jpg" data-light="img/app/kasir-terang.jpg" data-dark="img/app/kasir-gelap.jpg" class="themed" alt="Tampilan Kasir Oneilverse" width="1366" height="639"></div>
+      <div class="dev laptop"><div class="scr"><img src="img/app/kasir-terang.jpg" data-light="img/app/kasir-terang.jpg" data-dark="img/app/kasir-gelap.jpg" class="themed" alt="Tampilan Kasir Oneilverse di laptop" width="1366" height="639"></div><div class="base"></div></div>
       <div class="cardmini" data-card="pro"></div>
     </div>
   </div>
@@ -286,7 +315,7 @@ footer{padding:30px 0 50px;border-top:1px solid var(--line);font-size:13px;color
   <div class="head"><h2>Basic, Plus, dan Pro.</h2>
   <p class="lead">Mulai dari Basic, naik kapan saja. Plus dan Pro bisa dicoba gratis 24 jam langsung dari aplikasi, sekali untuk tiap paket.</p></div>
   <div class="grid g3" id="cards"></div>
-  <p class="note" id="priceNote">Harga Plus dan Pro diambil langsung dari pengaturan aplikasi. Harga Basic disesuaikan dengan skala toko, hubungi tim daerah.</p>
+  <p class="note" id="priceNote">Basic Rp 75.000 per bulan. Harga Plus dan Pro diambil langsung dari pengaturan aplikasi.</p>
 
   <div class="grid g2" style="margin-top:34px;align-items:start">
     <div class="panel">
@@ -320,10 +349,12 @@ footer{padding:30px 0 50px;border-top:1px solid var(--line);font-size:13px;color
       <div class="seg" role="group" aria-label="Pilih mode">
         <button aria-pressed="true" data-m="terang">Terang</button>
         <button aria-pressed="false" data-m="gelap">Gelap</button>
+        <button aria-pressed="false" data-m="proterang">Pro terang</button>
+        <button aria-pressed="false" data-m="progelap">Pro gelap</button>
       </div>
     </div>
     <div class="view">
-      <div class="shot"><img id="vimg" src="img/app/kasir-terang.jpg" alt="" width="1366" height="639"></div>
+      <div class="dev monitor"><div class="scr"><img id="vimg" src="img/app/kasir-terang.jpg" alt="" width="1366" height="639"></div><div class="chin"><i data-logo></i></div><div class="neck"></div><div class="foot"></div></div>
       <ul class="fn" id="vfn"></ul>
     </div>
   </div>
@@ -332,7 +363,7 @@ footer{padding:30px 0 50px;border-top:1px solid var(--line);font-size:13px;color
     <div class="panel">
       <h3>Dock: semua menu dalam satu baris</h3>
       <p class="muted" style="margin:0 0 14px">Bilah di bawah layar berisi tombol yang paling sering dipakai. Tekan logo di tengah untuk membuka menu lainnya.</p>
-      <div class="dock"><img src="img/app/dock.jpg" alt="Dock tertutup" width="471" height="83"><img src="img/app/dock-buka.jpg" alt="Dock terbuka" width="734" height="84"></div>
+      <div class="dev strip"><div class="scr"><img src="img/app/dock.jpg" alt="Dock tertutup" width="471" height="83"><img src="img/app/dock-buka.jpg" alt="Dock terbuka" width="734" height="84"></div></div>
       <ul class="fn" style="margin-top:16px">
         <li><b>Tema</b><span>Ganti mode terang atau gelap.</span></li>
         <li><b>Chat</b><span>Obrolan antar toko dan chat langsung dengan tim bantuan.</span></li>
@@ -493,13 +524,12 @@ footer{padding:30px 0 50px;border-top:1px solid var(--line);font-size:13px;color
     $('#verpill').textContent = 'Oneilverse ' + (j.versi || '') + ' · versi terbaru';
   }).catch(function () { $('#stext').textContent = 'Status belum terbaca'; });
 
-  var NOTES_FALLBACK = [["v1.3", "24 Nov 2026", ["[Baru] Tombol Upgrade di Kasir, Manager, dan Owner: dua kartu Plus dan Pro, tekan untuk melihat flyer isi paket", "[Baru] Coba gratis 24 jam, sekali untuk tiap paket per toko. Kasir boleh mencoba, hanya Manager dan Owner yang bisa berlangganan", "[Baru] Berlangganan 1 bulan atau 1 tahun lewat QRIS, kirim bukti ke WhatsApp, lalu paket aktif sementara 24 jam sampai dikonfirmasi", "[Perubahan] Setelah masa coba atau paket habis, data tetap terlihat dan hanya fitur tambahan yang terkunci", "[Perubahan] Fitur Kirim Struk lewat WhatsApp dihapus dari aplikasi, termasuk tombolnya di struk dan Riwayat Hari Ini", "[Baru] Tampilan bergaya kartu member: latar, kartu, dan header berwarna silver (mode terang) atau hitam (mode gelap), dan hitam-emas / sampanye saat paket Pro aktif, dengan cahaya lembut mengikuti kursor", "[Perubahan] Form Input Transaksi Kasir ditata ulang: dua kolom seimbang, kolom lebih jelas, muat satu layar tanpa gulir", "[Perubahan] Metode bayar dan akun tujuan (bank / Petty Cash) kini dipilih di jendela Konfirmasi Pembayaran saja", "[Perbaikan] Semua jendela pop-up kini padat dan latar di belakangnya diredupkan supaya mudah dibaca", "[Perbaikan] Kartu Total Masuk, Total Keluar, dan Saldo Kas Sah tidak lagi terpotong; header lebih pipih dan nama toko tidak lagi mepet dengan alamat", "[Perubahan] Tombol Upgrade di header tampil lebih modern dan bersih, mengikuti tema terang / gelap", "[Perbaikan] Jendela Oneil Shield kini mengikuti tema: putih di mode terang, gelap di mode gelap", "[Perbaikan] Kolom jumlah di Kasir diperlebar sehingga muat hingga 100.000", "[Perubahan] Kotak pajak di Kasir hanya muncul bila fitur Pajak PPN 12% aktif untuk toko", "[Perbaikan] Hitungan pajak harga sudah termasuk PPN 12% dibetulkan (12/112 dari total, bukan 12% dari total)"]], ["v1.2", "23 Nov 2026", ["[Baru] Metode bayar Hutang di Kasir dengan pilihan TOP 14, 30, atau 45 hari. Nama pelanggan wajib diisi, jatuh tempo otomatis dihitung dan tampil di struk", "[Baru] Penjualan hutang otomatis masuk ke Piutang & Utang (tersedia di semua paket), dan tidak dihitung sebagai uang tunai sampai dilunasi", "[Perbaikan] Pelunasan piutang dari Kasir tidak mencatat omzet dua kali", "[Baru] Kasir v1.2: Modal Konfirmasi Pembayaran dengan hitung Kembalian otomatis, tombol pecahan cepat, Diskon Struk, dan nama Pelanggan", "[Baru] Dukungan Split Payment (bayar campuran dua metode), Parkir Antrean (Hold), dan tab Riwayat Hari Ini untuk cetak ulang struk atau kirim WhatsApp", "[Baru] Chip cepat Sering Dipakai (1-Klik), kontrol jumlah (+/-) langsung di draft, peringatan stok real-time, suara bip scanner, shortcut keyboard (F2–F8), serta Mode Panduan (ⓘ) di menu bantuan"]], ["v1.1", "22 Nov 2026", ["[Baru] Tampilan One UI lebih bersih dengan mode terang dan mode gelap pekat di Kasir, Manager, Owner, dan Partner", "[Baru] Dock bawah bergaya pulau yang simetris serta sistem Paket Basic, Plus, dan Pro dengan lencana khusus", "[Baru] Fitur Banyak Bahasa lengkap (Indonesia, English, dan Bahasa Melayu) termasuk terjemahan otomatis daftar akun COA serta posisi dock yang konsisten", "[Baru] Fitur Impor Akun (COA) dan Impor Riwayat Transaksi dari file Excel / CSV (khusus Plus ke atas)", "[Perbaikan] Penyeragaman seluruh jendela pop-up, formulir Kasir penuh, serta tombol Perbarui Aplikasi hanya muncul saat ada pembaruan", "[Keamanan] Perlindungan halaman dari clickjacking serta penerapan hak akses paket dan peran secara konsisten"]], ["v1.0", "18 Nov 2026", ["[Baru] Sistem kasir dan pembukuan UMKM lengkap: Mutasi, Buku Besar, Laba Rugi, Neraca otomatis, Stok, Piutang & Utang, dan Payroll", "[Baru] Dukungan banyak usaha/cabang, Petty Cash, QRIS, cetak struk & kirim WhatsApp, serta pengelompokan akun standar PSAK", "[Keamanan] Perlindungan keamanan Oneil Shield (pembatasan salah PIN di server, log perangkat baru, dan skor keamanan toko)"]]];
+  var NOTES_FALLBACK = [["v1.3", "24 Nov 2026", ["[Baru] Tombol Upgrade di Kasir, Manager, dan Owner: dua kartu Plus dan Pro, tekan untuk melihat flyer isi paket", "[Baru] Coba gratis 24 jam, sekali untuk tiap paket per toko. Kasir boleh mencoba, hanya Manager dan Owner yang bisa berlangganan", "[Baru] Berlangganan 1 bulan atau 1 tahun lewat QRIS, kirim bukti ke WhatsApp, lalu paket aktif sementara 24 jam sampai dikonfirmasi", "[Perubahan] Setelah masa coba atau paket habis, data tetap terlihat dan hanya fitur tambahan yang terkunci", "[Perubahan] Fitur Kirim Struk lewat WhatsApp dihapus dari aplikasi, termasuk tombolnya di struk dan Riwayat Hari Ini", "[Baru] Tampilan bergaya kartu member: latar, kartu, dan header berwarna silver (mode terang) atau hitam (mode gelap), dan hitam-emas / sampanye saat paket Pro aktif, dengan cahaya lembut mengikuti kursor", "[Perubahan] Form Input Transaksi Kasir ditata ulang: dua kolom seimbang, kolom lebih jelas, muat satu layar tanpa gulir", "[Perubahan] Metode bayar dan akun tujuan (bank / Petty Cash) kini dipilih di jendela Konfirmasi Pembayaran saja", "[Perbaikan] Semua jendela pop-up kini padat dan latar di belakangnya diredupkan supaya mudah dibaca", "[Perbaikan] Kartu Total Masuk, Total Keluar, dan Saldo Kas Sah tidak lagi terpotong; header lebih pipih dan nama toko tidak lagi mepet dengan alamat", "[Perubahan] Tombol Upgrade di header tampil lebih modern dan bersih, mengikuti tema terang / gelap", "[Perbaikan] Jendela Oneil Shield kini mengikuti tema: putih di mode terang, gelap di mode gelap", "[Perbaikan] Kolom jumlah di Kasir diperlebar sehingga muat hingga 100.000", "[Perubahan] Kotak pajak di Kasir hanya muncul bila fitur Pajak PPN 12% aktif untuk toko", "[Perbaikan] Hitungan pajak harga sudah termasuk PPN 12% dibetulkan (12/112 dari total, bukan 12% dari total)"]], ["v1.2", "23 Nov 2026", ["[Baru] Metode bayar Hutang di Kasir dengan pilihan TOP 14, 30, atau 45 hari. Nama pelanggan wajib diisi, jatuh tempo otomatis dihitung dan tampil di struk", "[Baru] Penjualan hutang otomatis masuk ke Piutang & Utang (tersedia di semua paket), dan tidak dihitung sebagai uang tunai sampai dilunasi", "[Perbaikan] Pelunasan piutang dari Kasir tidak mencatat omzet dua kali", "[Baru] Kasir v1.2: Modal Konfirmasi Pembayaran dengan hitung Kembalian otomatis, tombol pecahan cepat, Diskon Struk, dan nama Pelanggan", "[Baru] Dukungan Split Payment (bayar campuran dua metode), Parkir Antrean (Hold), dan tab Riwayat Hari Ini untuk cetak ulang struk atau kirim WhatsApp", "[Baru] Chip cepat Sering Dipakai (1-Klik), kontrol jumlah (+/-) langsung di draft, peringatan stok real-time, suara bip scanner, shortcut keyboard (F2–F8), serta Mode Panduan (ⓘ) di menu bantuan"]], ["v1.1", "22 Nov 2026", ["[Baru] Tampilan One UI lebih bersih dengan mode terang dan mode gelap pekat di Kasir, Manager, Owner, dan Partner", "[Baru] Dock bawah bergaya pulau yang simetris serta sistem Paket Basic, Plus, dan Pro dengan lencana khusus", "[Baru] Fitur Banyak Bahasa lengkap (Indonesia, English, dan Bahasa Melayu) termasuk terjemahan otomatis daftar akun COA serta posisi dock yang konsisten", "[Baru] Fitur Impor Akun (COA) dan Impor Riwayat Transaksi dari file Excel / CSV (khusus Plus ke atas)", "[Perbaikan] Penyeragaman seluruh jendela pop-up, formulir Kasir penuh, serta tombol Perbarui Aplikasi hanya muncul saat ada pembaruan", "[Keamanan] Perlindungan halaman dari clickjacking serta penerapan hak akses paket dan peran secara konsisten"]], ["v1.0", "18 Nov 2026", ["[Baru] Sistem kasir dan pembukuan UMKM lengkap: Mutasi, Buku Besar, Laba Rugi, Neraca AI, Stok, Piutang & Utang, dan Payroll", "[Baru] Dukungan banyak usaha/cabang, Petty Cash, QRIS, cetak struk & kirim WhatsApp, serta pengelompokan akun standar PSAK", "[Keamanan] Perlindungan keamanan Oneil Shield (pembatasan salah PIN di server, log perangkat baru, dan skor keamanan toko)"]]];
   function relHtml(list) {
     return list.map(function (r, i) {
       return '<div class="rel' + (i === 0 ? ' now' : '') + '"><h3>' + esc(/^v/i.test(r[0]) ? r[0] : 'v' + r[0]) + ' <small>' + esc(r[1]) + (i === 0 ? ' · versi terbaru' : '') + '</small></h3><ul>' +
         r[2].map(function (n) {
           var m = /^\[(\w+)\]\s*(.*)$/.exec(n), tg = m ? m[1].toLowerCase() : '', tx = m ? m[2] : n;
-          tx = tx.replace(/Neraca AI/g, 'Neraca otomatis');
           return '<li>' + (tg ? '<span class="tag ' + esc(tg) + '">' + esc(m[1]) + '</span>' : '') + esc(tx) + '</li>';
         }).join('') + '</ul></div>';
     }).join('');
@@ -530,7 +560,7 @@ footer{padding:30px 0 50px;border-top:1px solid var(--line);font-size:13px;color
       ['mutasi', 'Mutasi kas', 'Daftar transaksi sah, bisa dicetak.'],
       ['ledger', 'Buku besar', 'Rincian per akun dengan saldo berjalan.'],
       ['laba_rugi', 'Laba rugi', 'Pendapatan, HPP, beban, dan laba bersih per periode.'],
-      ['neraca_ai', 'Neraca otomatis', 'Neraca tersusun dari transaksi, dengan kunci periode.'],
+      ['neraca_ai', 'Neraca AI', 'Neraca tersusun dari transaksi, dengan kunci periode.'],
       ['arus_kas', 'Arus kas', 'Uang masuk dan keluar per bulan, minggu, dan cara bayar.'],
       ['anggaran', 'Anggaran bulanan', 'Batas pengeluaran per akun dan target pemasukan.'],
       ['rekon', 'Rekonsiliasi kas', 'Cocokkan uang di laci dengan catatan.'],
@@ -566,7 +596,7 @@ footer{padding:30px 0 50px;border-top:1px solid var(--line);font-size:13px;color
   }).join('');
 
   /* ---------- paket ---------- */
-  var PRICE = { plus: { bulan: 149000, tahun: 1490000 }, pro: { bulan: 249000, tahun: 2490000 } };
+  var PRICE = { basic: { bulan: 75000 }, plus: { bulan: 149000, tahun: 1490000 }, pro: { bulan: 249000, tahun: 2490000 } };
   /* cadangan bila isi paket tidak terbaca dari server */
   var FB_PRO = ['banyak_usaha', 'admin_usaha', 'analisa', 'bahasa', 'grafik'];
   var FB_PLUS = ['import_tx', 'barcode', 'stok_scan', 'dashboard', 'audit', 'export_csv', 'arus_kas', 'anggaran', 'rekon', 'neraca_ai', 'pajak_bulanan', 'backup', 'laporan_bulanan', 'gaji', 'ledger', 'stok', 'stok_input', 'stok_closing', 'stok_habis', 'jual_produk', 'satuan_ganda'];
@@ -596,7 +626,7 @@ footer{padding:30px 0 50px;border-top:1px solid var(--line);font-size:13px;color
     var feats = allFeats().filter(function (f) { return tierOfKey(f[0]) === 'basic'; }).slice(0, 10);
     return '<div class="basiccard"><span class="lg"><i>' + LOGO + '</i>ONEILVERSE</span><span class="nm">Basic</span><span class="muted" style="margin-top:6px">Kasir dan pembukuan harian yang rapi</span>' +
       '<ul>' + feats.map(function (f) { return '<li>' + TICK('currentColor') + '<span>' + esc(f[1]) + '</span></li>'; }).join('') + '</ul>' +
-      '<span class="ft"><b>Sesuai skala toko</b>Hubungi tim daerah untuk harga</span></div>';
+      '<span class="ft"><b>' + rp(PRICE.basic.bulan) + '</b>per bulan</span></div>';
   }
   function renderPaket() {
     $('#cards').innerHTML = basicHtml() + cardHtml('plus') + cardHtml('pro');
@@ -637,25 +667,25 @@ footer{padding:30px 0 50px;border-top:1px solid var(--line);font-size:13px;color
     var t = (ANS.multi || ANS.admin) ? 'pro' : (ANS.stok || ANS.lap) ? 'plus' : 'basic';
     var why = t === 'pro' ? 'Banyak usaha atau banyak admin kasir ada di paket Pro.' : t === 'plus' ? 'Stok barang dan laporan lengkap ada di paket Plus.' : 'Kasir dan pembukuan harian sudah cukup dengan Basic.';
     $('#rec').innerHTML = '<span class="muted">Saran kami</span><br><b>' + (t === 'pro' ? 'Pro' : t === 'plus' ? 'Plus' : 'Basic') + '</b> ' +
-      (t === 'basic' ? '<span class="muted">· harga sesuai skala toko</span>' : '<span class="muted">· ' + rp(PRICE[t].bulan) + ' per bulan, bisa dicoba gratis 24 jam</span>') +
+      '<span class="muted">· ' + rp(PRICE[t].bulan) + ' per bulan' + (t === 'basic' ? '' : ', bisa dicoba gratis 24 jam') + '</span>' +
       '<p class="muted" style="margin:6px 0 0">' + why + '</p>';
   }
 
   /* ---------- tampilan ---------- */
   var VIEWS = {
-    kasir: { img: { terang: 'kasir-terang', gelap: 'kasir-gelap' }, fn: [
+    kasir: { img: { terang: 'kasir-terang', gelap: 'kasir-gelap', progelap: 'kasir-pro-gelap' }, fn: [
       ['Header', 'Nama toko, jam, cuaca, kurs, status sinkron, dan tombol Upgrade.'],
       ['Saldo shift', 'Kas masuk, kas keluar, dan saldo sejak closing terakhir. Tombol Closing dan Riwayat Closing di kanan.'],
       ['Form transaksi', 'Scan barcode atau pilih akun, isi jumlah dan nominal, lalu simpan ke antrean draft.'],
       ['Antrean draft', 'Pesanan bisa diubah, ditambah, atau diparkir sebelum disahkan. Tab Riwayat Hari Ini untuk cetak ulang struk.'],
       ['Total kas', 'Total masuk, total keluar, dan saldo kas sah yang terus diperbarui.']] },
-    manager: { img: { terang: 'manager-terang', gelap: 'manager-gelap' }, fn: [
+    manager: { img: { terang: 'manager-terang', gelap: 'manager-gelap', proterang: 'manager-pro-terang', progelap: 'manager-pro-gelap' }, fn: [
       ['Kartu utama', 'Total pemasukan, pengeluaran, laba rugi bulan ini, dan perkiraan biaya layanan.'],
       ['Ringkasan hari ini', 'Omzet, laba kotor, jumlah nota, barang terlaris, dan jam ramai.'],
       ['Metode bayar', 'Tunai, QRIS, dan transfer hari ini, untuk dicocokkan dengan laci.'],
       ['Target & stok', 'Progres target omzet dan daftar stok yang menipis.'],
       ['Aksi cepat', 'Buka kasir baru, kelola akun, stok, gaji, absensi, dan laporan bulanan.']] },
-    owner: { img: { terang: 'owner-terang', gelap: 'owner-terang' }, fn: [
+    owner: { img: { terang: 'owner-terang' }, fn: [
       ['Gambaran penuh', 'Semua kartu Manager ditambah pengaturan target omzet.'],
       ['Laba & margin', 'Omzet, laba, dan margin per produk atau akun pendapatan.'],
       ['Kendali tim', 'Kelola password staf, ubah nama peran, dan buka kasir baru.'],
@@ -663,9 +693,11 @@ footer{padding:30px 0 50px;border-top:1px solid var(--line);font-size:13px;color
   };
   var V = 'kasir', M = 'terang';
   function renderView() {
-    var v = VIEWS[V], src = 'img/app/' + v.img[M] + '.jpg';
-    $('#vimg').src = src; $('#vimg').alt = 'Tampilan ' + V + ' mode ' + M;
-    $('#vfn').innerHTML = v.fn.map(function (f) { return '<li><b>' + esc(f[0]) + '</b><span>' + esc(f[1]) + '</span></li>'; }).join('') + (V === 'owner' ? '<li><b>Mode gelap</b><span>Tersedia juga, sama seperti Manager.</span></li>' : '');
+    var v = VIEWS[V]; if (!v.img[M]) M = 'terang';
+    var src = 'img/app/' + v.img[M] + '.jpg';
+    $$('[data-m]').forEach(function (b) { b.hidden = !v.img[b.getAttribute('data-m')]; });
+    $('#vimg').src = src; $('#vimg').alt = 'Tampilan ' + V + ' di layar monitor';
+    $('#vfn').innerHTML = v.fn.map(function (f) { return '<li><b>' + esc(f[0]) + '</b><span>' + esc(f[1]) + '</span></li>'; }).join('') + (V === 'owner' ? '<li><b>Mode gelap & Pro</b><span>Tersedia juga, sama seperti halaman Manager.</span></li>' : '') + (M.indexOf('pro') === 0 ? '<li><b>Tema Pro</b><span>Toko paket Pro mendapat warna hitam-emas di mode gelap dan sampanye di mode terang, dengan tanda PRO di samping logo.</span></li>' : '');
     $$('[data-v]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-v') === V ? 'true' : 'false'); });
     $$('[data-m]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-m') === M ? 'true' : 'false'); });
   }
@@ -681,9 +713,18 @@ footer{padding:30px 0 50px;border-top:1px solid var(--line);font-size:13px;color
     ['laporan-bulanan', 'Laporan bulanan', 'Ringkasan satu bulan yang siap dikirim ke WhatsApp Owner.'],
     ['riwayat-closing', 'Riwayat closing', 'Catatan penyerahan uang kas tiap shift beserta petugasnya.'],
     ['kurs-emas', 'Kurs & emas', 'Harga emas dan kurs tujuh mata uang sebagai acuan.'],
-    ['audit', 'Riwayat audit', 'Jejak koreksi nota, void, dan perubahan akun oleh Manager.']
+    ['audit', 'Riwayat audit', 'Jejak koreksi nota, void, dan perubahan akun oleh Manager.'],
+    ['analisa', 'Analisa keuangan', 'Temuan dan saran dari data toko: margin, titik impas, biaya, dan perubahan dibanding minggu lalu.']
   ];
-  $('#gal').innerHTML = GAL.map(function (g) { return '<figure><div class="shot"><img loading="lazy" src="img/app/' + g[0] + '.jpg" alt="' + esc(g[1]) + '" width="1366" height="638"></div><figcaption><b>' + esc(g[1]) + '</b>' + esc(g[2]) + '</figcaption></figure>'; }).join('');
+  var DEVS = ['laptop', 'tablet', 'monitor'];
+  function dev(t, src, alt) {
+    var img = '<img loading="lazy" src="' + src + '" alt="' + esc(alt) + '" width="1366" height="638">';
+    if (t === 'laptop') return '<div class="dev laptop"><div class="scr">' + img + '</div><div class="base"></div></div>';
+    if (t === 'monitor') return '<div class="dev monitor"><div class="scr">' + img + '</div><div class="chin"><i data-logo></i></div><div class="neck"></div><div class="foot"></div></div>';
+    return '<div class="dev tablet"><div class="scr">' + img + '</div></div>';
+  }
+  $('#gal').innerHTML = GAL.map(function (g, i) { return '<figure>' + dev(DEVS[Math.floor(i / 2) % 3], 'img/app/' + g[0] + '.jpg', g[1]) + '<figcaption><b>' + esc(g[1]) + '</b>' + esc(g[2]) + '</figcaption></figure>'; }).join('');
+  logoReady.then(function () { $$('[data-logo]').forEach(function (e) { e.innerHTML = LOGO; }); });
 
   /* ---------- coba kasir ---------- */
   var PRODS = [['Kopi susu', 18000], ['Teh manis', 8000], ['Roti bakar', 15000], ['Nasi goreng', 22000], ['Air mineral', 5000], ['Kentang goreng', 16000]];
