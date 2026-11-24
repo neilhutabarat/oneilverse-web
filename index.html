@@ -601,7 +601,10 @@ footer{padding:30px 0 50px;border-top:1px solid var(--line);font-size:13px;color
   var FB_PRO = ['banyak_usaha', 'admin_usaha', 'analisa', 'bahasa', 'grafik'];
   var FB_PLUS = ['import_tx', 'barcode', 'stok_scan', 'dashboard', 'audit', 'export_csv', 'arus_kas', 'anggaran', 'rekon', 'neraca_ai', 'pajak_bulanan', 'backup', 'laporan_bulanan', 'gaji', 'ledger', 'stok', 'stok_input', 'stok_closing', 'stok_habis', 'jual_produk', 'satuan_ganda'];
   var CAT = null;
+  /* fitur inti: selalu ada di semua paket (tidak bisa dicentang di Atur Isi Paket) */
+  var CORE = ['input', 'saldo', 'closing', 'mutasi', 'coa', 'kasir_baru', 'laba_rugi', 'pin'];
   function tierOfKey(k) {
+    if (CORE.indexOf(k) >= 0) return 'basic';
     if (CAT) {
       var on = function (t) { var p = CAT[t] && CAT[t][k]; return !!p && Object.keys(p).some(function (r) { return p[r] === true; }); };
       if (on('basic')) return 'basic'; if (on('plus')) return 'plus'; if (on('pro')) return 'pro'; return '';
